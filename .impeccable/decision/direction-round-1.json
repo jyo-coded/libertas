@@ -1,0 +1,231 @@
+{
+  "title": "Choose the visual world for Libertas Forum",
+  "question": "The roll assigned Passbook & Clearing. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Passbook & Clearing",
+      "kicker": "THE ROLL",
+      "lineage": "Indian bank passbooks and cheque clearing: posting stamps, return memos, pencilled clerk notes",
+      "thesis": "Every alert posts like an uncleared cheque; the deep lane then clears it or returns it with a reason.",
+      "palette": [
+        "#1d2a4d",
+        "#eef2f6",
+        "#14213d",
+        "#5a3d9a",
+        "#b42318",
+        "#b7791f",
+        "#6b7280"
+      ],
+      "materials": [
+        "security-tint paper",
+        "posting-stamp ink",
+        "pencil annotation for leads"
+      ],
+      "viewport": "Navy cover rail; a posting queue of alerts ranked by urgency whose status stamps turn UNCLEARED to CLEARED or RETURNED live; the selected entry's voucher beside it.",
+      "risk": "Overplay the banking grammar and it reads as a bank app; it must live in states, ink and figures only.",
+      "raised": [
+        {
+          "from": "challenger-split-flap",
+          "raise": "Clearing restyles an entry in place: rows keep identity and position when the deep lane rules, nothing jumps."
+        },
+        {
+          "from": "challenger-yellow-wayfinding",
+          "raise": "Every voucher ends in a Next actions strip offering only what is possible now: build pack, notify, assign."
+        },
+        {
+          "from": "challenger-metro-tiles",
+          "raise": "No decorative chrome: hierarchy comes from figures and type weight, never card shadows."
+        },
+        {
+          "from": "challenger-catalog-grid",
+          "raise": "Every entity carries a short citable code (ALT-0037, ACT-02, CLU-6688) so officers can say it aloud."
+        }
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "Message Precedence",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Police wireless message pads: precedence (FLASH, IMMEDIATE, PRIORITY, ROUTINE) and date-time groups",
+      "thesis": "Every alert is a signal message with a precedence and a date-time group, logged until acknowledged.",
+      "palette": [
+        "#3b4a2a",
+        "#f1f3ee",
+        "#1f2a1a",
+        "#c0392b",
+        "#d97706",
+        "#1d4ed8",
+        "#475569"
+      ],
+      "materials": [
+        "carbon-copy message pad",
+        "precedence stamps"
+      ],
+      "viewport": "Khaki-olive rail; a message log sorted by precedence and DTG; the open message as a signal form with action-taken lines.",
+      "risk": "Topped my list, but it is the familiar route: precedence codes behave like any SOC severity column."
+    },
+    {
+      "id": "challenger-gate-board",
+      "label": "Gate Board",
+      "verdict": "competitive",
+      "lineage": "boarding passes and live airport gate boards",
+      "thesis": "Alerts rerank in place and a changed verdict stays lit until an officer acknowledges it.",
+      "palette": [
+        "#111827",
+        "#f9fafb",
+        "#e11d48",
+        "#334155"
+      ],
+      "materials": [
+        "segmented pass stubs",
+        "tabular figures"
+      ],
+      "viewport": "A ranked board of alerts with a pass-style stub for the selected one; changes flash and hold.",
+      "case": "Fuses cleanly and holds product clarity (persistent change state); loses audience identification for police officers.",
+      "risk": "Reads as travel software if the stubs dominate.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-boarding-pass-and-gate-board-hero.webp"
+    },
+    {
+      "id": "challenger-orienteering",
+      "label": "Course Over Terrain",
+      "verdict": "competitive",
+      "lineage": "orienteering maps: fixed terrain colours, one purple course line",
+      "thesis": "Context stays a muted fixed language; the active evidence path rides above it in one reserved colour.",
+      "palette": [
+        "#ffffff",
+        "#8a9a5b",
+        "#a0522d",
+        "#7b2cbf"
+      ],
+      "materials": [
+        "contour texture",
+        "control circles"
+      ],
+      "viewport": "The relationship graph as terrain with the evidence path drawn as the course, control by control.",
+      "case": "Holds product clarity for the graph and evidence paths; loses audience identification and says little about the alert queue.",
+      "risk": "Strong for one view, thin as a whole console.",
+      "hero": "https://impeccable.style/worlds/cards/notation-diagram-systems-orienteering-map-hero.webp"
+    },
+    {
+      "id": "challenger-split-flap",
+      "label": "Split-Flap Concourse",
+      "verdict": "declined",
+      "lineage": "rail concourse split-flap departure boards",
+      "thesis": "Live rows ranked by time with per-character flips.",
+      "palette": [
+        "#0b0b0b",
+        "#f5f5f5",
+        "#f59e0b",
+        "#b91c1c"
+      ],
+      "materials": [
+        "matte flaps",
+        "brushed steel"
+      ],
+      "viewport": "A black departures board of alerts.",
+      "case": "Spectacle over evidence: reads as the flashy look you ruled out, and time-ranking fights urgency.",
+      "kept": "A state change restyles the row in place without breaking the grid.",
+      "risk": "Fancy on a projector.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-split-flap-concourse-hero.webp"
+    },
+    {
+      "id": "challenger-yellow-wayfinding",
+      "label": "Terminal Wayfinding",
+      "verdict": "declined",
+      "lineage": "airport yellow sign bands",
+      "thesis": "Each junction shows only the choices ahead.",
+      "palette": [
+        "#ffd200",
+        "#111111",
+        "#ffffff"
+      ],
+      "materials": [
+        "sign bands",
+        "pictograms"
+      ],
+      "viewport": "Yellow bands naming the next decision.",
+      "case": "Loud and foreign to a police console.",
+      "kept": "Show only the next possible actions at each decision point.",
+      "risk": "Yellow everywhere drowns the alerts.",
+      "hero": "https://impeccable.style/worlds/cards/wayfinding-cartography-signage-terminal-yellow-wayfinding-hero.webp"
+    },
+    {
+      "id": "challenger-metro-tiles",
+      "label": "Metro Tiles",
+      "verdict": "declined",
+      "lineage": "flat typographic tile interfaces",
+      "thesis": "Chrome deleted; type is the interface.",
+      "palette": [
+        "#000000",
+        "#00aba9",
+        "#ffffff"
+      ],
+      "materials": [
+        "flat tiles"
+      ],
+      "viewport": "A panorama of live tiles.",
+      "case": "Toy-like and generic, both on your avoid list.",
+      "kept": "Hierarchy from type and figures, not decoration.",
+      "risk": "Reads as a 2012 phone UI.",
+      "hero": "https://impeccable.style/worlds/cards/digital-design-canon-metro-typographic-tiles-hero.webp"
+    },
+    {
+      "id": "challenger-catalog-grid",
+      "label": "Coded Catalog Grid",
+      "verdict": "declined",
+      "lineage": "printed event catalogs with table codes",
+      "thesis": "Every cell has a code that maps to a place.",
+      "palette": [
+        "#1a1a1a",
+        "#e9e6df",
+        "#d43f3a"
+      ],
+      "materials": [
+        "newsprint",
+        "thumbnail cells"
+      ],
+      "viewport": "A dense numbered grid.",
+      "case": "Pop-culture register, unprofessional for this audience.",
+      "kept": "Short citable codes for every entity.",
+      "risk": "Cluttered at distance.",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-doujin-event-catalog-hero.webp"
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "code",
+    "toggle": false
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A threat-intelligence console as SOC vendors ship it, executed cleanly.",
+    "palette": [
+      "#0f172a",
+      "#f8fafc",
+      "#2563eb",
+      "#dc2626"
+    ],
+    "materials": [
+      "neutral grid",
+      "severity chips"
+    ],
+    "viewport": "Left nav, KPI cards on top, an alert table and charts below.",
+    "risk": "Indistinguishable from any SOC product the judges have already seen."
+  },
+  "steer": true,
+  "seed": {
+    "key": "6236d055",
+    "mode": "operate",
+    "source": "api",
+    "approved_pool": "c3b204a1eed6",
+    "provenance": "concept-seed output in this session: 6236d055; mode: operate; source: api; approved pool: c3b204a1eed6; 306/564 human-approved",
+    "outcome": "user pinned a fusion of candidate 6 (Passbook & Clearing, the roll) and candidate 1 (Message Precedence)"
+  }
+}

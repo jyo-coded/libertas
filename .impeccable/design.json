@@ -1,0 +1,744 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-17T20:48:02+00:00",
+  "title": "Design System: Libertas Forum",
+  "extensions": {
+    "colorMeta": {
+      "rail": {
+        "role": "primary",
+        "displayName": "Signal Rail Olive",
+        "canonical": "#2e3a24",
+        "oklch": "oklch(33.1% 0.040 131.5)",
+        "tonalRamp": [
+          "oklch(15% 0.040 131.5)",
+          "oklch(26% 0.040 131.5)",
+          "oklch(38% 0.040 131.5)",
+          "oklch(50% 0.040 131.5)",
+          "oklch(62% 0.040 131.5)",
+          "oklch(74% 0.040 131.5)",
+          "oklch(85% 0.040 131.5)",
+          "oklch(95% 0.040 131.5)"
+        ]
+      },
+      "rail-hover": {
+        "role": "primary",
+        "displayName": "Rail Hover Olive",
+        "canonical": "#38462d",
+        "oklch": "oklch(37.4% 0.045 132.0)",
+        "tonalRamp": [
+          "oklch(15% 0.045 132.0)",
+          "oklch(26% 0.045 132.0)",
+          "oklch(38% 0.045 132.0)",
+          "oklch(50% 0.045 132.0)",
+          "oklch(62% 0.045 132.0)",
+          "oklch(74% 0.045 132.0)",
+          "oklch(85% 0.045 132.0)",
+          "oklch(95% 0.045 132.0)"
+        ]
+      },
+      "rail-current": {
+        "role": "primary",
+        "displayName": "Rail Current Olive",
+        "canonical": "#475839",
+        "oklch": "oklch(43.7% 0.053 131.6)",
+        "tonalRamp": [
+          "oklch(15% 0.053 131.6)",
+          "oklch(26% 0.053 131.6)",
+          "oklch(38% 0.053 131.6)",
+          "oklch(50% 0.053 131.6)",
+          "oklch(62% 0.053 131.6)",
+          "oklch(74% 0.053 131.6)",
+          "oklch(85% 0.053 131.6)",
+          "oklch(95% 0.053 131.6)"
+        ]
+      },
+      "rail-ink": {
+        "role": "primary",
+        "displayName": "Rail Bone",
+        "canonical": "#e9eddf",
+        "oklch": "oklch(93.9% 0.019 119.8)",
+        "tonalRamp": [
+          "oklch(15% 0.019 119.8)",
+          "oklch(26% 0.019 119.8)",
+          "oklch(38% 0.019 119.8)",
+          "oklch(50% 0.019 119.8)",
+          "oklch(62% 0.019 119.8)",
+          "oklch(74% 0.019 119.8)",
+          "oklch(85% 0.019 119.8)",
+          "oklch(95% 0.019 119.8)"
+        ]
+      },
+      "rail-pencil": {
+        "role": "primary",
+        "displayName": "Rail Pencil",
+        "canonical": "#b9c2a8",
+        "oklch": "oklch(80.0% 0.037 122.8)",
+        "tonalRamp": [
+          "oklch(15% 0.037 122.8)",
+          "oklch(26% 0.037 122.8)",
+          "oklch(38% 0.037 122.8)",
+          "oklch(50% 0.037 122.8)",
+          "oklch(62% 0.037 122.8)",
+          "oklch(74% 0.037 122.8)",
+          "oklch(85% 0.037 122.8)",
+          "oklch(95% 0.037 122.8)"
+        ]
+      },
+      "rail-line": {
+        "role": "primary",
+        "displayName": "Rail Divider",
+        "canonical": "rgb(233 237 223 / 0.14)",
+        "tonalRamp": []
+      },
+      "pad-ground": {
+        "role": "neutral",
+        "displayName": "Message-Pad Ground",
+        "canonical": "#eef1ea",
+        "oklch": "oklch(95.4% 0.010 125.7)",
+        "tonalRamp": [
+          "oklch(15% 0.010 125.7)",
+          "oklch(26% 0.010 125.7)",
+          "oklch(38% 0.010 125.7)",
+          "oklch(50% 0.010 125.7)",
+          "oklch(62% 0.010 125.7)",
+          "oklch(74% 0.010 125.7)",
+          "oklch(85% 0.010 125.7)",
+          "oklch(95% 0.010 125.7)"
+        ]
+      },
+      "pad-ground-deep": {
+        "role": "neutral",
+        "displayName": "Pad Ground Deep",
+        "canonical": "#e3e8dc",
+        "oklch": "oklch(92.4% 0.017 125.3)",
+        "tonalRamp": [
+          "oklch(15% 0.017 125.3)",
+          "oklch(26% 0.017 125.3)",
+          "oklch(38% 0.017 125.3)",
+          "oklch(50% 0.017 125.3)",
+          "oklch(62% 0.017 125.3)",
+          "oklch(74% 0.017 125.3)",
+          "oklch(85% 0.017 125.3)",
+          "oklch(95% 0.017 125.3)"
+        ]
+      },
+      "voucher-white": {
+        "role": "neutral",
+        "displayName": "Voucher White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(38% 0.000 89.9)",
+          "oklch(50% 0.000 89.9)",
+          "oklch(62% 0.000 89.9)",
+          "oklch(74% 0.000 89.9)",
+          "oklch(85% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "voucher-tint": {
+        "role": "neutral",
+        "displayName": "Voucher Tint",
+        "canonical": "#f6f8f3",
+        "oklch": "oklch(97.6% 0.007 124.4)",
+        "tonalRamp": [
+          "oklch(15% 0.007 124.4)",
+          "oklch(26% 0.007 124.4)",
+          "oklch(38% 0.007 124.4)",
+          "oklch(50% 0.007 124.4)",
+          "oklch(62% 0.007 124.4)",
+          "oklch(74% 0.007 124.4)",
+          "oklch(85% 0.007 124.4)",
+          "oklch(95% 0.007 124.4)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#d5dbcc",
+        "oklch": "oklch(88.3% 0.021 124.7)",
+        "tonalRamp": [
+          "oklch(15% 0.021 124.7)",
+          "oklch(26% 0.021 124.7)",
+          "oklch(38% 0.021 124.7)",
+          "oklch(50% 0.021 124.7)",
+          "oklch(62% 0.021 124.7)",
+          "oklch(74% 0.021 124.7)",
+          "oklch(85% 0.021 124.7)",
+          "oklch(95% 0.021 124.7)"
+        ],
+        "note": "Projector mode firms to #c4ccb8."
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Rule Strong",
+        "canonical": "#b4bca8",
+        "oklch": "oklch(78.3% 0.029 124.9)",
+        "tonalRamp": [
+          "oklch(15% 0.029 124.9)",
+          "oklch(26% 0.029 124.9)",
+          "oklch(38% 0.029 124.9)",
+          "oklch(50% 0.029 124.9)",
+          "oklch(62% 0.029 124.9)",
+          "oklch(74% 0.029 124.9)",
+          "oklch(85% 0.029 124.9)",
+          "oklch(95% 0.029 124.9)"
+        ],
+        "note": "Projector mode firms to #9da890."
+      },
+      "pad-margin-rule": {
+        "role": "neutral",
+        "displayName": "Pad Margin Rule",
+        "canonical": "#e6c2c8",
+        "oklch": "oklch(84.7% 0.042 6.7)",
+        "tonalRamp": [
+          "oklch(15% 0.042 6.7)",
+          "oklch(26% 0.042 6.7)",
+          "oklch(38% 0.042 6.7)",
+          "oklch(50% 0.042 6.7)",
+          "oklch(62% 0.042 6.7)",
+          "oklch(74% 0.042 6.7)",
+          "oklch(85% 0.042 6.7)",
+          "oklch(95% 0.042 6.7)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Fact Ink",
+        "canonical": "#1b2116",
+        "oklch": "oklch(23.8% 0.022 131.2)",
+        "tonalRamp": [
+          "oklch(15% 0.022 131.2)",
+          "oklch(26% 0.022 131.2)",
+          "oklch(38% 0.022 131.2)",
+          "oklch(50% 0.022 131.2)",
+          "oklch(62% 0.022 131.2)",
+          "oklch(74% 0.022 131.2)",
+          "oklch(85% 0.022 131.2)",
+          "oklch(95% 0.022 131.2)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "#394133",
+        "oklch": "oklch(36.3% 0.026 131.9)",
+        "tonalRamp": [
+          "oklch(15% 0.026 131.9)",
+          "oklch(26% 0.026 131.9)",
+          "oklch(38% 0.026 131.9)",
+          "oklch(50% 0.026 131.9)",
+          "oklch(62% 0.026 131.9)",
+          "oklch(74% 0.026 131.9)",
+          "oklch(85% 0.026 131.9)",
+          "oklch(95% 0.026 131.9)"
+        ]
+      },
+      "pencil": {
+        "role": "neutral",
+        "displayName": "Pencil Graphite",
+        "canonical": "#5b6169",
+        "oklch": "oklch(49.0% 0.015 255.6)",
+        "tonalRamp": [
+          "oklch(15% 0.015 255.6)",
+          "oklch(26% 0.015 255.6)",
+          "oklch(38% 0.015 255.6)",
+          "oklch(50% 0.015 255.6)",
+          "oklch(62% 0.015 255.6)",
+          "oklch(74% 0.015 255.6)",
+          "oklch(85% 0.015 255.6)",
+          "oklch(95% 0.015 255.6)"
+        ],
+        "note": "Projector mode darkens to #4c5259."
+      },
+      "pencil-dark": {
+        "role": "neutral",
+        "displayName": "Pencil Dark",
+        "canonical": "#474d54",
+        "oklch": "oklch(41.7% 0.014 252.2)",
+        "tonalRamp": [
+          "oklch(15% 0.014 252.2)",
+          "oklch(26% 0.014 252.2)",
+          "oklch(38% 0.014 252.2)",
+          "oklch(50% 0.014 252.2)",
+          "oklch(62% 0.014 252.2)",
+          "oklch(74% 0.014 252.2)",
+          "oklch(85% 0.014 252.2)",
+          "oklch(95% 0.014 252.2)"
+        ],
+        "note": "Projector mode darkens to #3d4248."
+      },
+      "flash": {
+        "role": "secondary",
+        "displayName": "FLASH Red",
+        "canonical": "#b42318",
+        "oklch": "oklch(50.0% 0.182 29.5)",
+        "tonalRamp": [
+          "oklch(15% 0.182 29.5)",
+          "oklch(26% 0.182 29.5)",
+          "oklch(38% 0.182 29.5)",
+          "oklch(50% 0.182 29.5)",
+          "oklch(62% 0.182 29.5)",
+          "oklch(74% 0.182 29.5)",
+          "oklch(85% 0.182 29.5)",
+          "oklch(95% 0.182 29.5)"
+        ]
+      },
+      "immediate": {
+        "role": "secondary",
+        "displayName": "IMMEDIATE Amber",
+        "canonical": "#b54708",
+        "oklch": "oklch(53.9% 0.156 43.0)",
+        "tonalRamp": [
+          "oklch(15% 0.156 43.0)",
+          "oklch(26% 0.156 43.0)",
+          "oklch(38% 0.156 43.0)",
+          "oklch(50% 0.156 43.0)",
+          "oklch(62% 0.156 43.0)",
+          "oklch(74% 0.156 43.0)",
+          "oklch(85% 0.156 43.0)",
+          "oklch(95% 0.156 43.0)"
+        ]
+      },
+      "priority": {
+        "role": "secondary",
+        "displayName": "PRIORITY Blue",
+        "canonical": "#1d4ed8",
+        "oklch": "oklch(48.8% 0.217 264.4)",
+        "tonalRamp": [
+          "oklch(15% 0.217 264.4)",
+          "oklch(26% 0.217 264.4)",
+          "oklch(38% 0.217 264.4)",
+          "oklch(50% 0.217 264.4)",
+          "oklch(62% 0.217 264.4)",
+          "oklch(74% 0.217 264.4)",
+          "oklch(85% 0.217 264.4)",
+          "oklch(95% 0.217 264.4)"
+        ]
+      },
+      "routine": {
+        "role": "secondary",
+        "displayName": "ROUTINE Slate",
+        "canonical": "#5b6169",
+        "oklch": "oklch(49.0% 0.015 255.6)",
+        "tonalRamp": [
+          "oklch(15% 0.015 255.6)",
+          "oklch(26% 0.015 255.6)",
+          "oklch(38% 0.015 255.6)",
+          "oklch(50% 0.015 255.6)",
+          "oklch(62% 0.015 255.6)",
+          "oklch(74% 0.015 255.6)",
+          "oklch(85% 0.015 255.6)",
+          "oklch(95% 0.015 255.6)"
+        ]
+      },
+      "cleared-violet": {
+        "role": "tertiary",
+        "displayName": "Clearing Violet",
+        "canonical": "#5b3fa0",
+        "oklch": "oklch(45.2% 0.150 292.7)",
+        "tonalRamp": [
+          "oklch(15% 0.150 292.7)",
+          "oklch(26% 0.150 292.7)",
+          "oklch(38% 0.150 292.7)",
+          "oklch(50% 0.150 292.7)",
+          "oklch(62% 0.150 292.7)",
+          "oklch(74% 0.150 292.7)",
+          "oklch(85% 0.150 292.7)",
+          "oklch(95% 0.150 292.7)"
+        ],
+        "note": "Also the focus ring (--focus) and the graph evidence path."
+      },
+      "cleared-paper": {
+        "role": "tertiary",
+        "displayName": "Clearing Paper",
+        "canonical": "#f4f0fb",
+        "oklch": "oklch(96.1% 0.015 302.6)",
+        "tonalRamp": [
+          "oklch(15% 0.015 302.6)",
+          "oklch(26% 0.015 302.6)",
+          "oklch(38% 0.015 302.6)",
+          "oklch(50% 0.015 302.6)",
+          "oklch(62% 0.015 302.6)",
+          "oklch(74% 0.015 302.6)",
+          "oklch(85% 0.015 302.6)",
+          "oklch(95% 0.015 302.6)"
+        ]
+      },
+      "returned-maroon": {
+        "role": "tertiary",
+        "displayName": "Return Maroon",
+        "canonical": "#8a1538",
+        "oklch": "oklch(41.6% 0.151 10.5)",
+        "tonalRamp": [
+          "oklch(15% 0.151 10.5)",
+          "oklch(26% 0.151 10.5)",
+          "oklch(38% 0.151 10.5)",
+          "oklch(50% 0.151 10.5)",
+          "oklch(62% 0.151 10.5)",
+          "oklch(74% 0.151 10.5)",
+          "oklch(85% 0.151 10.5)",
+          "oklch(95% 0.151 10.5)"
+        ]
+      },
+      "returned-paper": {
+        "role": "tertiary",
+        "displayName": "Return Paper",
+        "canonical": "#fcf0f3",
+        "oklch": "oklch(96.5% 0.013 0.3)",
+        "tonalRamp": [
+          "oklch(15% 0.013 0.3)",
+          "oklch(26% 0.013 0.3)",
+          "oklch(38% 0.013 0.3)",
+          "oklch(50% 0.013 0.3)",
+          "oklch(62% 0.013 0.3)",
+          "oklch(74% 0.013 0.3)",
+          "oklch(85% 0.013 0.3)",
+          "oklch(95% 0.013 0.3)"
+        ]
+      },
+      "watching-green": {
+        "role": "tertiary",
+        "displayName": "Watching Green",
+        "canonical": "#3f7a2a",
+        "oklch": "oklch(52.1% 0.129 138.5)",
+        "tonalRamp": [
+          "oklch(15% 0.129 138.5)",
+          "oklch(26% 0.129 138.5)",
+          "oklch(38% 0.129 138.5)",
+          "oklch(50% 0.129 138.5)",
+          "oklch(62% 0.129 138.5)",
+          "oklch(74% 0.129 138.5)",
+          "oklch(85% 0.129 138.5)",
+          "oklch(95% 0.129 138.5)"
+        ]
+      },
+      "watching-green-on-rail": {
+        "role": "tertiary",
+        "displayName": "Watching Green on Rail",
+        "canonical": "#a6d58f",
+        "oklch": "oklch(82.3% 0.107 135.7)",
+        "tonalRamp": [
+          "oklch(15% 0.107 135.7)",
+          "oklch(26% 0.107 135.7)",
+          "oklch(38% 0.107 135.7)",
+          "oklch(50% 0.107 135.7)",
+          "oklch(62% 0.107 135.7)",
+          "oklch(74% 0.107 135.7)",
+          "oklch(85% 0.107 135.7)",
+          "oklch(95% 0.107 135.7)"
+        ]
+      },
+      "exercise-ochre": {
+        "role": "tertiary",
+        "displayName": "EXERCISE Ochre",
+        "canonical": "#efc845",
+        "oklch": "oklch(84.4% 0.150 91.9)",
+        "tonalRamp": [
+          "oklch(15% 0.150 91.9)",
+          "oklch(26% 0.150 91.9)",
+          "oklch(38% 0.150 91.9)",
+          "oklch(50% 0.150 91.9)",
+          "oklch(62% 0.150 91.9)",
+          "oklch(74% 0.150 91.9)",
+          "oklch(85% 0.150 91.9)",
+          "oklch(95% 0.150 91.9)"
+        ]
+      },
+      "exercise-ink": {
+        "role": "tertiary",
+        "displayName": "EXERCISE Ink",
+        "canonical": "#2b2200",
+        "oklch": "oklch(25.5% 0.052 94.3)",
+        "tonalRamp": [
+          "oklch(15% 0.052 94.3)",
+          "oklch(26% 0.052 94.3)",
+          "oklch(38% 0.052 94.3)",
+          "oklch(50% 0.052 94.3)",
+          "oklch(62% 0.052 94.3)",
+          "oklch(74% 0.052 94.3)",
+          "oklch(85% 0.052 94.3)",
+          "oklch(95% 0.052 94.3)"
+        ]
+      },
+      "exercise-line": {
+        "role": "tertiary",
+        "displayName": "EXERCISE Rule",
+        "canonical": "#b8901c",
+        "oklch": "oklch(67.3% 0.130 87.5)",
+        "tonalRamp": [
+          "oklch(15% 0.130 87.5)",
+          "oklch(26% 0.130 87.5)",
+          "oklch(38% 0.130 87.5)",
+          "oklch(50% 0.130 87.5)",
+          "oklch(62% 0.130 87.5)",
+          "oklch(74% 0.130 87.5)",
+          "oklch(85% 0.130 87.5)",
+          "oklch(95% 0.130 87.5)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "View titles, with the Latin module name beside them."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Voucher, passbook and sheet titles (1.36rem to 1.4rem)."
+      },
+      "section": {
+        "displayName": "Section",
+        "purpose": "Voucher section heads followed by a full-width rule (dashed for pencil sections)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Facts, memo reasons and prose. Root 16px desk, 18px projector, 15px phones."
+      },
+      "body-small": {
+        "displayName": "Body small",
+        "purpose": "Fact labels, metadata, ages and notes, mostly in pencil (0.78rem to 0.9rem)."
+      },
+      "label": {
+        "displayName": "Signal-form label",
+        "purpose": "Log column heads, ledger heads, memo heads, backfill divider. Uppercase. The legibility floor (0.74rem)."
+      },
+      "precedence": {
+        "displayName": "Precedence",
+        "purpose": "Precedence tags and masthead counts. Uppercase."
+      },
+      "stamp-sm": {
+        "displayName": "Stamp, log",
+        "purpose": "Straight clearing stamps in the log column. Uppercase."
+      },
+      "stamp-lg": {
+        "displayName": "Stamp, voucher",
+        "purpose": "Tilted clearing stamp on the voucher. Uppercase."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "DTGs and clock times, MSG/ACT/INC codes, hashes, scores, P values, aliases; tabular figures."
+      },
+      "captured": {
+        "displayName": "Captured text",
+        "purpose": "Captured post text in a plain-text pre, identifiers already masked."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet",
+        "value": "0 1px 2px rgb(27 33 22 / 0.06), 0 12px 30px -16px rgb(27 33 22 / 0.24)",
+        "purpose": "Paper documents only: vouchers, the passbook, record sheets."
+      },
+      {
+        "name": "stamp-rule-sm",
+        "value": "inset 0 0 0 1.5px var(--paper), inset 0 0 0 2.5px var(--c)",
+        "purpose": "Inner double rule of the small CLEARED and RETURNED stamps; frame, not depth."
+      },
+      {
+        "name": "stamp-rule-lg",
+        "value": "inset 0 0 0 2.5px var(--paper), inset 0 0 0 4px var(--c)",
+        "purpose": "Inner double rule of the large voucher stamp."
+      }
+    ],
+    "motion": [
+      {
+        "name": "stamp-land",
+        "value": "560ms cubic-bezier(0.16, 1, 0.3, 1) both; scale 1.85 + blur 1.5px -> 0.94 -> 1.025 -> 1, tilt held",
+        "purpose": "The single authored motion. Plays once, only on an UNCLEARED to CLEARED or RETURNED transition, in log and voucher. Disabled under prefers-reduced-motion."
+      },
+      {
+        "name": "ease-expo-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Easing of stamp-land."
+      },
+      {
+        "name": "state-feedback",
+        "value": "150ms ease (background-color, border-color, color)",
+        "purpose": "Button, kill switch and projector toggle hover feedback only; removed under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1599px",
+        "purpose": "max-width: masthead Unacknowledged label and Projector text become screen-reader only."
+      },
+      {
+        "name": "laptop",
+        "value": "1365px",
+        "purpose": "max-width: rail collapses to 4.25rem icons; log and voucher split 56/44."
+      },
+      {
+        "name": "narrow",
+        "value": "1180px",
+        "purpose": "max-width: masthead sub-line dropped, kill switch icon-only, log columns tighten."
+      },
+      {
+        "name": "phone",
+        "value": "760px",
+        "purpose": "max-width: root 15px, single column, rail becomes a sticky horizontal strip, log or voucher one at a time."
+      }
+    ],
+    "displayModes": [
+      {
+        "name": "desk",
+        "value": "html { font-size: 16px }"
+      },
+      {
+        "name": "projector",
+        "value": "html[data-display=projector] { font-size: 18px; --line: #c4ccb8; --line-strong: #9da890; --pencil: #4c5259; --pencil-ink: #3d4248 }"
+      }
+    ],
+    "imagery": "No shipping rasters. Icons are lucide-react SVG components; the brand mark is inline SVG and the favicon is hand-authored SVG (web/public/favicon.svg). No raster provenance applies."
+  },
+  "components": [
+    {
+      "name": "Precedence Tag",
+      "kind": "chip",
+      "refersTo": "precedence-flash",
+      "description": "FLASH, IMMEDIATE, PRIORITY filled; ROUTINE outlined. Always carries its word.",
+      "html": "<span class=\"ds-prec ds-prec--flash\">FLASH</span> <span class=\"ds-prec ds-prec--immediate\">IMMEDIATE</span> <span class=\"ds-prec ds-prec--priority\">PRIORITY</span> <span class=\"ds-prec ds-prec--routine\">ROUTINE</span>",
+      "css": ".ds-prec { display: inline-flex; align-items: center; justify-content: center; min-width: 6.4rem; padding: 0.3rem 0.4rem; border: 1px solid var(--c); border-radius: 2px; background: var(--c); color: #fff; font-family: \"Red Hat Mono\", ui-monospace, \"Cascadia Mono\", Consolas, monospace; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.07em; line-height: 1; white-space: nowrap; } .ds-prec--flash { --c: var(--flash, #b42318); } .ds-prec--immediate { --c: var(--immediate, #b54708); } .ds-prec--priority { --c: var(--priority, #1d4ed8); } .ds-prec--routine { --c: var(--routine, #5b6169); background: transparent; color: var(--c); }"
+    },
+    {
+      "name": "Clearing Stamp",
+      "kind": "custom",
+      "refersTo": "stamp-cleared-sm",
+      "description": "UNCLEARED in dashed pencil; CLEARED violet and RETURNED maroon with an inset double rule. Large voucher stamp is tilted; hover the large stamp to replay stamp-land.",
+      "html": "<span class=\"ds-stamp ds-stamp--sm ds-stamp--uncleared\">Uncleared</span> <span class=\"ds-stamp ds-stamp--sm ds-stamp--cleared\">Cleared</span> <span class=\"ds-stamp ds-stamp--sm ds-stamp--returned\">Returned</span><br><br><span class=\"ds-stamp ds-stamp--lg ds-stamp--returned\" style=\"--tilt:-3.4deg\">Returned</span>",
+      "css": ".ds-stamp { display: inline-block; font-family: \"Public Sans Variable\", \"Public Sans\", system-ui, sans-serif; font-weight: 800; line-height: 1; text-transform: uppercase; white-space: nowrap; border-radius: 3px; } .ds-stamp--sm { min-width: 6.4rem; padding: 0.32rem 0.45rem 0.3rem 0.57rem; font-size: 0.74rem; letter-spacing: 0.13em; text-align: center; } .ds-stamp--lg { padding: 0.6rem 0.85rem 0.56rem 1.05rem; font-size: 1.45rem; letter-spacing: 0.17em; } .ds-stamp--cleared, .ds-stamp--returned { color: var(--c); background: var(--paper); border: 1.5px solid var(--c); box-shadow: inset 0 0 0 1.5px var(--paper), inset 0 0 0 2.5px var(--c); transform: rotate(var(--tilt, 0deg)); } .ds-stamp--lg.ds-stamp--cleared, .ds-stamp--lg.ds-stamp--returned { border-width: 2.5px; box-shadow: inset 0 0 0 2.5px var(--paper), inset 0 0 0 4px var(--c); } .ds-stamp--cleared { --c: var(--cleared, #5b3fa0); --paper: var(--cleared-paper, #f4f0fb); } .ds-stamp--returned { --c: var(--returned, #8a1538); --paper: var(--returned-paper, #fcf0f3); } .ds-stamp--uncleared { color: var(--pencil, #5b6169); border: 1px dashed var(--pencil, #5b6169); font-weight: 600; letter-spacing: 0.12em; } @keyframes ds-stamp-land { 0% { opacity: 0; transform: rotate(var(--tilt, 0deg)) scale(1.85); filter: blur(1.5px); } 55% { opacity: 1; transform: rotate(var(--tilt, 0deg)) scale(0.94); filter: blur(0); } 78% { transform: rotate(var(--tilt, 0deg)) scale(1.025); } 100% { opacity: 1; transform: rotate(var(--tilt, 0deg)) scale(1); } } .ds-stamp--lg:hover { animation: ds-stamp-land 560ms cubic-bezier(0.16, 1, 0.3, 1) both; } @media (prefers-reduced-motion: reduce) { .ds-stamp--lg:hover { animation: none; } }"
+    },
+    {
+      "name": "Memo Slip",
+      "kind": "card",
+      "refersTo": "memo-returned",
+      "description": "The verdict's reason: Return memo (maroon), Clearing note (violet), or a dashed pencil slip while awaiting the deep lane.",
+      "html": "<div class=\"ds-memo ds-memo--returned\"><p class=\"ds-memo-head\">Return memo</p><p class=\"ds-memo-reason\"><b>Likely fake.</b> Likely fake, authenticity score 0.55 of 1. Most sample identifiers fail their checksums.</p><ul class=\"ds-memo-checks\"><li>Aadhaar checksums: 0/4 valid</li><li>Seller has 6 earlier post(s) on this source</li></ul></div><div class=\"ds-memo ds-memo--cleared\"><p class=\"ds-memo-head\">Clearing note</p><p class=\"ds-memo-reason\">The sample data passes the checksum and geography checks.</p></div><div class=\"ds-memo ds-memo--uncleared\"><p class=\"ds-memo-head\">Awaiting the deep lane</p><p class=\"ds-memo-reason\">Fast-lane reading only. The deep lane has not ruled yet.</p></div>",
+      "css": ".ds-memo { margin: 0 0 0.7rem; padding: 0.6rem 0.8rem 0.65rem; border: 1px solid var(--line-strong, #b4bca8); border-radius: 3px; background: var(--surface-2, #f6f8f3); color: var(--ink, #1b2116); font-family: \"Public Sans Variable\", \"Public Sans\", system-ui, sans-serif; max-width: 30rem; } .ds-memo--cleared { border-color: #c8bce6; background: var(--cleared-paper, #f4f0fb); } .ds-memo--returned { border-color: #e3b3c0; background: var(--returned-paper, #fcf0f3); } .ds-memo--uncleared { border-style: dashed; border-color: var(--pencil, #5b6169); background: transparent; color: var(--pencil, #5b6169); } .ds-memo-head { margin: 0 0 0.25rem; font-family: \"Red Hat Mono\", ui-monospace, \"Cascadia Mono\", Consolas, monospace; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; } .ds-memo--cleared .ds-memo-head { color: var(--cleared, #5b3fa0); } .ds-memo--returned .ds-memo-head { color: var(--returned, #8a1538); } .ds-memo-reason { margin: 0; } .ds-memo-checks { display: grid; gap: 0.15rem; margin: 0.5rem 0 0; padding: 0.45rem 0 0 1.1rem; border-top: 1px dashed var(--line-strong, #b4bca8); list-style: square; font-size: 0.88rem; color: var(--ink-2, #394133); } .ds-memo--returned .ds-memo-checks li::marker { color: var(--returned, #8a1538); }"
+    },
+    {
+      "name": "Voucher with Counterfoil",
+      "kind": "card",
+      "refersTo": "voucher",
+      "description": "White paper sheet with the sheet shadow; counterfoil torn along a dashed perforation with punched ends.",
+      "html": "<div class=\"ds-pane\"><article class=\"ds-voucher\"><div class=\"ds-cf\"><span class=\"ds-cf-no\">MSG-0041</span><span class=\"ds-cf-prec\">IMMEDIATE</span><span class=\"ds-cf-dtg\">DTG 180157 NOV 26</span><span class=\"ds-cf-sim\">Simulated</span><span class=\"ds-cf-ack\">Awaiting acknowledgement</span></div><div class=\"ds-v-body\"><h2>Data leak / database sale: Marutham Co-operative Bank</h2><p class=\"ds-v-sub\">Marutham Co-operative Bank (Banking, Thanjavur)</p></div></article></div>",
+      "css": ".ds-pane { padding: 1rem; background: var(--ground-2, #e3e8dc); font-family: \"Public Sans Variable\", \"Public Sans\", system-ui, sans-serif; color: var(--ink, #1b2116); } .ds-voucher { max-width: 48rem; border: 1px solid var(--line, #d5dbcc); border-radius: 3px; background: #fff; box-shadow: 0 1px 2px rgb(27 33 22 / 0.06), 0 12px 30px -16px rgb(27 33 22 / 0.24); } .ds-cf { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.8rem; padding: 0.7rem 1.25rem 0.75rem; background: var(--surface-2, #f6f8f3); border-bottom: 1px dashed var(--line-strong, #b4bca8); border-radius: 3px 3px 0 0; } .ds-cf::before, .ds-cf::after { content: \"\"; position: absolute; bottom: -0.5rem; width: 1rem; height: 1rem; border-radius: 50%; background: var(--ground-2, #e3e8dc); } .ds-cf::before { left: -0.55rem; } .ds-cf::after { right: -0.55rem; } .ds-cf-no { font-family: \"Red Hat Mono\", ui-monospace, \"Cascadia Mono\", Consolas, monospace; font-size: 0.98rem; font-weight: 600; } .ds-cf-prec { padding: 0.3rem 0.4rem; border-radius: 2px; background: var(--immediate, #b54708); color: #fff; font-family: \"Red Hat Mono\", ui-monospace, \"Cascadia Mono\", Consolas, monospace; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.07em; line-height: 1; } .ds-cf-dtg { font-family: \"Red Hat Mono\", ui-monospace, \"Cascadia Mono\", Consolas, monospace; font-size: 0.86rem; color: var(--ink-2, #394133); } .ds-cf-sim { padding: 0.12rem 0.35rem; border-radius: 2px; background: var(--exercise, #efc845); color: var(--exercise-ink, #2b2200); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; } .ds-cf-ack { margin-left: auto; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 600; } .ds-cf-ack::before { content: \"\"; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: currentColor; } .ds-v-body { padding: 1rem 1.25rem 1.5rem; } .ds-v-body h2 { margin: 0; font-size: 1.36rem; font-weight: 650; line-height: 1.25; letter-spacing: -0.01em; } .ds-v-sub { margin: 0.35rem 0 0; color: var(--ink-2, #394133); font-size: 0.9rem; }"
+    },
+    {
+      "name": "Facts and Leads",
+      "kind": "custom",
+      "refersTo": "lead",
+      "description": "Facts in ink on solid hairlines; leads in pencil on dashed rules, graded by truth level and P.",
+      "html": "<section class=\"ds-sec\"><header class=\"ds-sec-head\"><h3>Facts</h3></header><dl class=\"ds-facts\"><div class=\"ds-fact\"><dt>Source</dt><dd>Kaal Forum · Forum</dd></div><div class=\"ds-fact\"><dt>First seen</dt><dd><span class=\"ds-mono\">18 Nov 2026, 01:57:12 IST</span></dd></div></dl></section><section class=\"ds-sec ds-sec--pencil\"><header class=\"ds-sec-head\"><h3>Leads</h3></header><ul class=\"ds-leads\"><li class=\"ds-lead\"><div><p class=\"ds-lead-title\">Same seller as alias <span class=\"ds-mono\">data_baniya</span> on DeadDrop</p></div><span class=\"ds-lead-grade\"><span>T2 Heuristic only</span><span class=\"ds-mono\">P 0.640</span></span></li></ul></section>",
+      "css": ".ds-sec { margin-top: 1.4rem; font-family: \"Public Sans Variable\", \"Public Sans\", system-ui, sans-serif; color: var(--ink, #1b2116); max-width: 34rem; } .ds-sec-head { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.55rem; } .ds-sec-head h3 { margin: 0; font-size: 0.96rem; font-weight: 650; } .ds-sec-head::after { content: \"\"; flex: 1; align-self: center; height: 1px; background: var(--line, #d5dbcc); } .ds-sec--pencil .ds-sec-head h3 { color: var(--pencil-ink, #474d54); } .ds-sec--pencil .ds-sec-head::after { background: repeating-linear-gradient(90deg, var(--line-strong, #b4bca8) 0 4px, transparent 4px 8px); } .ds-facts { margin: 0; } .ds-fact { display: grid; grid-template-columns: 8.75rem minmax(0, 1fr); gap: 0.75rem; padding: 0.4rem 0; } .ds-fact + .ds-fact { border-top: 1px solid #e8ece2; } .ds-fact dt { font-size: 0.82rem; color: var(--pencil, #5b6169); } .ds-fact dd { margin: 0; } .ds-mono { font-family: \"Red Hat Mono\", ui-monospace, \"Cascadia Mono\", Consolas, monospace; font-variant-numeric: tabular-nums; } .ds-leads { display: grid; gap: 0.5rem; margin: 0; padding: 0; list-style: none; } .ds-lead { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.35rem 1rem; padding: 0.62rem 0.8rem; border: 1px dashed var(--line-strong, #b4bca8); border-radius: 3px; color: var(--pencil, #5b6169); } .ds-lead-title { margin: 0; color: var(--pencil-ink, #474d54); font-weight: 500; } .ds-lead-grade { display: grid; justify-items: end; gap: 0.1rem; font-size: 0.8rem; white-space: nowrap; }"
+    },
+    {
+      "name": "Rail Navigation",
+      "kind": "nav",
+      "refersTo": "rail-item",
+      "description": "Olive rail: plain-English label with the Latin module name small in pencil mono; the current section is notched into the page.",
+      "html": "<nav class=\"ds-rail\"><a class=\"ds-rail-item is-current\" href=\"#\" aria-current=\"page\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polyline points=\"22 12 16 12 14 15 10 15 8 12 2 12\"/><path d=\"M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z\"/></svg><span>Message log</span><span class=\"ds-rail-latin\">Vigiles</span></a><a class=\"ds-rail-item\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><span>Explorer</span><span class=\"ds-rail-latin\">Interpres</span></a></nav>",
+      "css": ".ds-rail { width: 13.75rem; padding: 0.55rem 0; background: var(--rail, #2e3a24); font-family: \"Public Sans Variable\", \"Public Sans\", system-ui, sans-serif; } .ds-rail-item { position: relative; display: grid; grid-template-columns: 1.25rem minmax(0, 1fr) auto; align-items: center; gap: 0.7rem; padding: 0.6rem 1rem; color: var(--rail-ink, #e9eddf); text-decoration: none; font-size: 0.93rem; } .ds-rail-item svg { color: var(--rail-pencil, #b9c2a8); } .ds-rail-latin { font-family: \"Red Hat Mono\", ui-monospace, \"Cascadia Mono\", Consolas, monospace; font-size: 0.74rem; color: var(--rail-pencil, #b9c2a8); } .ds-rail-item:hover { background: var(--rail-2, #38462d); } .ds-rail-item:focus-visible { outline: 2px solid var(--rail-ink, #e9eddf); outline-offset: -2px; } .ds-rail-item.is-current { background: var(--rail-3, #475839); font-weight: 600; } .ds-rail-item.is-current svg { color: var(--rail-ink, #e9eddf); } .ds-rail-item.is-current::after { content: \"\"; position: absolute; right: 0; top: 50%; translate: 0 -50%; border: 0.45rem solid transparent; border-right-color: var(--ground, #eef1ea); }"
+    },
+    {
+      "name": "Buttons",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Default white on a strong rule, primary rail olive, danger FLASH red; 4px corners, violet focus ring.",
+      "html": "<button class=\"ds-btn\">Build evidence pack</button> <button class=\"ds-btn ds-btn--primary\">Acknowledge</button> <button class=\"ds-btn ds-btn--danger\">Halt now</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; height: 2.3rem; padding: 0 0.95rem; border: 1px solid var(--line-strong, #b4bca8); border-radius: 4px; background: #fff; color: var(--ink, #1b2116); font-family: \"Public Sans Variable\", \"Public Sans\", system-ui, sans-serif; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background-color 0.15s ease, border-color 0.15s ease; } .ds-btn:hover { background: var(--surface-2, #f6f8f3); border-color: var(--ink-2, #394133); } .ds-btn:focus-visible { outline: 2px solid var(--focus, #5b3fa0); outline-offset: 2px; } .ds-btn--primary { background: var(--rail, #2e3a24); border-color: var(--rail, #2e3a24); color: var(--rail-ink, #e9eddf); } .ds-btn--primary:hover { background: #222c1a; border-color: #222c1a; } .ds-btn--danger { background: var(--flash, #b42318); border-color: var(--flash, #b42318); color: #fff; } .ds-btn--danger:hover { background: #911b12; border-color: #911b12; } @media (prefers-reduced-motion: reduce) { .ds-btn { transition: none; } }"
+    },
+    {
+      "name": "Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "White field on a strong rule; focus turns the border and ring violet.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Search captures</span><input class=\"ds-input\" placeholder=\"alias, wallet, onion or MSG number\"></label>",
+      "css": ".ds-field { display: grid; gap: 0.25rem; font-family: \"Public Sans Variable\", \"Public Sans\", system-ui, sans-serif; max-width: 22rem; } .ds-field-label { font-size: 0.78rem; color: var(--ink-2, #394133); } .ds-input { height: 2.3rem; padding: 0 0.7rem; border: 1px solid var(--line-strong, #b4bca8); border-radius: 4px; background: #fff; color: var(--ink, #1b2116); font: inherit; font-size: 0.92rem; } .ds-input::placeholder { color: #687077; } .ds-input:focus-visible { outline: 2px solid var(--focus, #5b3fa0); outline-offset: 2px; border-color: var(--focus, #5b3fa0); }"
+    },
+    {
+      "name": "EXERCISE Strip",
+      "kind": "custom",
+      "refersTo": "exercise-strip",
+      "description": "Ochre simulation banner above the masthead on every route; never truncated.",
+      "html": "<div class=\"ds-exercise\" role=\"note\"><span class=\"ds-exercise-words\" aria-hidden=\"true\"><span>Exercise</span><span>Exercise</span><span>Exercise</span></span><span>Every site, post, person and wallet on this console is simulated (ShadowNet). No real victims and no real criminal sites.</span></div>",
+      "css": ".ds-exercise { display: flex; align-items: center; gap: 1.1rem; padding: 0.45rem 1rem; background: var(--exercise, #efc845); color: var(--exercise-ink, #2b2200); border-bottom: 1px solid var(--exercise-line, #b8901c); font-family: \"Public Sans Variable\", \"Public Sans\", system-ui, sans-serif; font-size: 0.92rem; font-weight: 500; line-height: 1.35; } .ds-exercise-words { display: inline-flex; flex: none; gap: 0.9rem; font-family: \"Red Hat Mono\", ui-monospace, \"Cascadia Mono\", Consolas, monospace; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Passbook Ledger",
+      "kind": "custom",
+      "refersTo": "passbook",
+      "description": "The money trail as an Indian bank passbook: ink-ruled head, columned hairlines, tabular figures, IST dates.",
+      "html": "<div class=\"ds-passbook\"><div class=\"ds-pb-head\"><h2>Wallet cluster C-01</h2><dl class=\"ds-pb-totals\"><div><dt>Received</dt><dd>0.84210000 BTC</dd></div><div><dt>To exchanges</dt><dd>0.31000000 BTC</dd></div></dl></div><table class=\"ds-pb-table\"><thead><tr><th>Date (IST)</th><th>Particulars</th><th class=\"num\">Withdrawals</th><th class=\"num\">Deposits</th></tr></thead><tbody><tr><td>17-11-2026</td><td>From <span class=\"ds-mono\">bc1q9x…7tz4</span></td><td class=\"num\"></td><td class=\"num\">0.42000000</td></tr><tr class=\"is-exit\"><td>18-11-2026</td><td>To exchange deposit</td><td class=\"num\">0.31000000</td><td class=\"num\"></td></tr></tbody></table></div>",
+      "css": ".ds-passbook { max-width: 68rem; padding: 1.1rem 1.4rem 1.6rem; border: 1px solid var(--line, #d5dbcc); border-radius: 3px; background: #fff; box-shadow: 0 1px 2px rgb(27 33 22 / 0.06), 0 12px 30px -16px rgb(27 33 22 / 0.24); font-family: \"Public Sans Variable\", \"Public Sans\", system-ui, sans-serif; color: var(--ink, #1b2116); } .ds-pb-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; padding-bottom: 0.9rem; border-bottom: 2px solid var(--ink, #1b2116); } .ds-pb-head h2 { margin: 0; font-size: 1.36rem; font-weight: 650; } .ds-pb-totals { display: flex; gap: 1.6rem; margin: 0; } .ds-pb-totals dt { font-size: 0.76rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--pencil, #5b6169); } .ds-pb-totals dd { margin: 0.12rem 0 0; font-family: \"Red Hat Mono\", ui-monospace, \"Cascadia Mono\", Consolas, monospace; font-size: 1.05rem; font-weight: 600; } .ds-pb-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; font-variant-numeric: tabular-nums; } .ds-pb-table th { padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--ink, #1b2116); color: var(--ink-2, #394133); font-size: 0.76rem; font-weight: 650; letter-spacing: 0.05em; text-align: left; text-transform: uppercase; } .ds-pb-table td { padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--line, #d5dbcc); font-family: \"Red Hat Mono\", ui-monospace, \"Cascadia Mono\", Consolas, monospace; } .ds-pb-table td:nth-child(2) { font-family: \"Public Sans Variable\", \"Public Sans\", system-ui, sans-serif; } .ds-pb-table th + th, .ds-pb-table td + td { border-left: 1px solid var(--line, #d5dbcc); } .ds-pb-table .num { text-align: right; } .ds-pb-table tr.is-exit td { background: #f6f2e4; } .ds-mono { font-family: \"Red Hat Mono\", ui-monospace, \"Cascadia Mono\", Consolas, monospace; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Signals Log That Clears Like Cheques",
+    "overview": "Forum is a police message pad crossed with a bank's clearing desk. Every alert is logged as a signal message with a precedence and an IST date-time group, written first in pencil as UNCLEARED, and then struck with the deep lane's ink stamp: violet CLEARED or maroon RETURNED, with the reason pinned on a slip the way a bank pins a return memo to a dishonoured cheque. The officer reads urgency from precedence and time, and reads truth from ink versus pencil.\n\nThe shell is an olive-khaki signal rail and masthead around a grey-green message-pad ground; the working documents (voucher, passbook, sheets) are white paper with a faint sheet shadow. Density is that of a working tool: ruled rows, tabular figures, tight 3px corners, no cards for their own sake. Source health is one ruled board, the money trail is a passbook ledger, and the open section is notched into the page from the rail. It refuses the category default of KPI cards stacked over a severity table.\n\nThe world is light only, by use scene: a lit judging room, a projector, and officers' desks. A projector mode raises the root size and firms the rules and graphite instead of switching themes. Simulation is never in doubt: an ochre EXERCISE strip sits above everything on every route.",
+    "keyCharacteristics": [
+      "Olive rail and masthead, grey-green pad ground, white paper sheets.",
+      "Ink for facts, pencil graphite with dashed rules for leads and anything not yet ruled.",
+      "Four precedence tags carry the urgency; two clearing stamps carry the verdict.",
+      "Red Hat Mono for the signal form (DTGs, codes, hashes, figures, captured text); Public Sans for everything read as prose.",
+      "One authored motion: the stamp landing on an UNCLEARED message.",
+      "No raster imagery: icons are lucide SVG components, the brand mark and favicon are hand-authored SVG."
+    ],
+    "rules": [
+      {
+        "name": "The Ink and Pencil Rule",
+        "body": "Facts are set in ink on solid rules; leads and anything not yet ruled are set in pencil graphite on dashed rules. A lead is never set in ink, whatever its probability.",
+        "section": "colors"
+      },
+      {
+        "name": "The Violet Thread Rule",
+        "body": "Violet means \"cleared and evidenced\": the CLEARED stamp, the focus ring, and the evidence path in the graph. It is never used for decoration or for any other state.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ochre Means Exercise Rule",
+        "body": "Ochre appears only where simulation is declared: the EXERCISE strip and the SIMULATED tag.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signal-Form Mono Rule",
+        "body": "Red Hat Mono is allowed only for what a signals clerk would copy character by character: DTGs and clock times, MSG/ACT/INC codes, hashes and addresses, figures, scores and probabilities, aliases, captured text, and the signal-form labels (precedence words, column and ledger heads, memo heads, Latin module names, the EXERCISE words). Titles, facts, reasons and leads are set in Public Sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Legibility Floor Rule",
+        "body": "Nothing that carries meaning is set below 0.74rem: precedence tags, stamps, ages, column heads, legends and the phone EXERCISE strip all sit at 0.74rem or larger. On desk the EXERCISE strip is 0.92rem.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Sheet Rule",
+        "body": "Only paper documents lift off the pad. Boards, rows, memos, leads, controls and tags stay flat and are separated by rules.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** rank every message by precedence first and then by DTG, and show the precedence word in its tag, never colour alone.",
+      "**Do** log a message in pencil as UNCLEARED (dashed, no fill) until the deep lane rules, then strike the stamp in place with `stamp-land` exactly once.",
+      "**Do** keep log stamps straight at a fixed 6.4rem width, and tilt only the large voucher stamp.",
+      "**Do** carry every verdict's reason on a Clearing note or Return memo slip under the large stamp.",
+      "**Do** show every time in IST and say so (\"IST\" on the clock, on full dates and in passbook headings); DTGs follow the DDHHMM MON YY form.",
+      "**Do** set captured content as plain text in a mono `pre`, and display personal identifiers and names only in the masked form the server sends (for example `S****** P.`).",
+      "**Do** keep the EXERCISE strip visible and untruncated at every width while the data is simulated, and repeat a SIMULATED tag on the counterfoil.",
+      "**Do** keep the Latin module names as secondary labels: small, in pencil mono, beside the plain-English label and never instead of it.",
+      "**Do** raise the root to 18px and darken the rules and graphite for the projector, rather than adding a theme."
+    ],
+    "donts": [
+      "**Don't** set a lead, an attribution or a cluster link in ink or on a solid rule; leads stay in pencil on dashed rules.",
+      "**Don't** render captured HTML or any captured content as markup, or unmask an identifier on the client.",
+      "**Don't** ship a dark theme; the use scene (a lit room, a projector, desks) is light by contract.",
+      "**Don't** use violet, maroon or ochre for anything except clearing, return and simulation (violet also marks focus and the evidence path).",
+      "**Don't** stack KPI cards over a severity table, or break source health into a row of cards.",
+      "**Don't** add authored motion beyond the stamp landing, or play it on page load or on stamps that were already ruled.",
+      "**Don't** set meaningful text below 0.74rem.",
+      "**Don't** add a second shadow or lift rows, slips, tags or controls off the pad; only paper documents carry the sheet shadow."
+    ]
+  }
+}

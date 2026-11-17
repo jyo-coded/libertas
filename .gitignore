@@ -1,0 +1,13 @@
+# runtime data: databases, quarantine store, Tor keys and data. Never commit.
+var/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+web/dist/
+*.log
+.env
+
+# local design-tool session state
+.impeccable/questions/

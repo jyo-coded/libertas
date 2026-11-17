@@ -1,0 +1,128 @@
+{
+  "python": "3.13.7",
+  "bootstrap_seconds_seen_by_script": 0.0,
+  "tor_version": "250-version=0.4.9.16 (git-c51547ca15ea6659)",
+  "address_checks": {
+    "torproject": true,
+    "duckduckgo": true,
+    "bbc": true,
+    "nytimes": true,
+    "propublica": true,
+    "securedrop": true,
+    "ahmia": true
+  },
+  "fake_address_checks": [
+    true,
+    true,
+    true
+  ],
+  "E3_descriptor_probes": {
+    "torproject": {
+      "result": "RECEIVED",
+      "seconds": 1.52,
+      "hsdirs_asked": 1,
+      "failed_before": 0
+    },
+    "duckduckgo": {
+      "result": "RECEIVED",
+      "seconds": 1.06,
+      "hsdirs_asked": 1,
+      "failed_before": 0
+    },
+    "bbc": {
+      "result": "RECEIVED",
+      "seconds": 0.99,
+      "hsdirs_asked": 1,
+      "failed_before": 0
+    },
+    "nytimes": {
+      "result": "NOT_FOUND",
+      "seconds": 4.99,
+      "hsdirs_asked": 6,
+      "reasons": [
+        "NOT_FOUND"
+      ]
+    },
+    "propublica": {
+      "result": "NOT_FOUND",
+      "seconds": 5.94,
+      "hsdirs_asked": 6,
+      "reasons": [
+        "NOT_FOUND"
+      ]
+    },
+    "securedrop": {
+      "result": "RECEIVED",
+      "seconds": 1.51,
+      "hsdirs_asked": 1,
+      "failed_before": 0
+    },
+    "ahmia": {
+      "result": "RECEIVED",
+      "seconds": 1.28,
+      "hsdirs_asked": 1,
+      "failed_before": 0
+    },
+    "nonexistent_0": {
+      "result": "NOT_FOUND",
+      "seconds": 5.75,
+      "hsdirs_asked": 6,
+      "reasons": [
+        "NOT_FOUND"
+      ]
+    },
+    "nonexistent_1": {
+      "result": "NOT_FOUND",
+      "seconds": 6.08,
+      "hsdirs_asked": 6,
+      "reasons": [
+        "NOT_FOUND"
+      ]
+    },
+    "nonexistent_2": {
+      "result": "NOT_FOUND",
+      "seconds": 4.7,
+      "hsdirs_asked": 6,
+      "reasons": [
+        "NOT_FOUND"
+      ]
+    }
+  },
+  "descriptor_outer_meta": {
+    "torproject": {
+      "descriptor-lifetime": "180",
+      "revision-counter": "1902115342",
+      "bytes": 26719
+    },
+    "duckduckgo": {
+      "descriptor-lifetime": "180",
+      "revision-counter": "1912633994",
+      "bytes": 27739
+    },
+    "bbc": {
+      "descriptor-lifetime": "180",
+      "revision-counter": "1849497768",
+      "bytes": 14199
+    },
+    "nytimes": {
+      "descriptor-lifetime": null,
+      "revision-counter": null,
+      "bytes": 22
+    },
+    "propublica": {
+      "descriptor-lifetime": null,
+      "revision-counter": null,
+      "bytes": 22
+    },
+    "securedrop": {
+      "descriptor-lifetime": "180",
+      "revision-counter": "1779948760",
+      "bytes": 14199
+    },
+    "ahmia": {
+      "descriptor-lifetime": "180",
+      "revision-counter": "1856664631",
+      "bytes": 27739
+    }
+  }
+}

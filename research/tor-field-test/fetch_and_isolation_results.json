@@ -1,0 +1,453 @@
+{
+  "python": "3.13.7",
+  "bootstrap_seconds_seen_by_script": 0.0,
+  "tor_version": "250-version=0.4.9.16 (git-c51547ca15ea6659)",
+  "address_checks": {
+    "torproject": true,
+    "duckduckgo": true,
+    "bbc": true,
+    "nytimes": true,
+    "propublica": true,
+    "securedrop": true,
+    "ahmia": true
+  },
+  "fake_address_checks": [
+    true,
+    true,
+    true
+  ],
+  "E3_descriptor_probes": {
+    "torproject": {
+      "result": "RECEIVED",
+      "seconds": 6.89,
+      "hsdirs_asked": 1,
+      "failed_before": 0
+    },
+    "duckduckgo": {
+      "result": "RECEIVED",
+      "seconds": 1.19,
+      "hsdirs_asked": 1,
+      "failed_before": 0
+    },
+    "bbc": {
+      "result": "RECEIVED",
+      "seconds": 1.54,
+      "hsdirs_asked": 1,
+      "failed_before": 0
+    },
+    "nytimes": {
+      "result": "TIMEOUT",
+      "seconds": 60
+    },
+    "propublica": {
+      "result": "TIMEOUT",
+      "seconds": 60
+    },
+    "securedrop": {
+      "result": "TIMEOUT",
+      "seconds": 60
+    },
+    "ahmia": {
+      "result": "TIMEOUT",
+      "seconds": 60
+    },
+    "nonexistent_0": {
+      "result": "TIMEOUT",
+      "seconds": 60
+    },
+    "nonexistent_1": {
+      "result": "TIMEOUT",
+      "seconds": 60
+    },
+    "nonexistent_2": {
+      "result": "TIMEOUT",
+      "seconds": 60
+    }
+  },
+  "descriptor_outer_meta": {
+    "torproject": {
+      "descriptor-lifetime": "180",
+      "revision-counter": "1902115342",
+      "bytes": 26719
+    },
+    "duckduckgo": {
+      "descriptor-lifetime": "180",
+      "revision-counter": "1860380646",
+      "bytes": 27739
+    },
+    "bbc": {
+      "descriptor-lifetime": "180",
+      "revision-counter": "1849497768",
+      "bytes": 14199
+    },
+    "nytimes": {
+      "descriptor-lifetime": null,
+      "revision-counter": null,
+      "bytes": 22
+    },
+    "propublica": {
+      "descriptor-lifetime": null,
+      "revision-counter": null,
+      "bytes": 22
+    },
+    "securedrop": {
+      "descriptor-lifetime": "180",
+      "revision-counter": "1779948760",
+      "bytes": 14199
+    },
+    "ahmia": {
+      "descriptor-lifetime": "180",
+      "revision-counter": "1856664631",
+      "bytes": 27739
+    }
+  },
+  "E1_wall_seconds_all_sites": 46.13,
+  "E1_fetch": {
+    "torproject": {
+      "first_contact": [
+        {
+          "code": "200",
+          "ttfb": 6.634517,
+          "total": 7.040274,
+          "bytes": 25724,
+          "new_conns": 1
+        }
+      ],
+      "same_circuit_new_stream": [
+        {
+          "code": "200",
+          "ttfb": 1.478335,
+          "total": 1.669368,
+          "bytes": 25724,
+          "new_conns": 1
+        }
+      ],
+      "new_circuit_cached_descriptor": [
+        {
+          "code": "200",
+          "ttfb": 2.84194,
+          "total": 3.037291,
+          "bytes": 25724,
+          "new_conns": 1
+        }
+      ],
+      "keepalive_pair": [
+        {
+          "code": "200",
+          "ttfb": 0.818574,
+          "total": 0.878709,
+          "bytes": 25724,
+          "new_conns": 1
+        },
+        {
+          "code": "200",
+          "ttfb": 0.446086,
+          "total": 0.485993,
+          "bytes": 25724,
+          "new_conns": 0
+        }
+      ]
+    },
+    "duckduckgo": {
+      "first_contact": [
+        {
+          "code": "301",
+          "ttfb": 2.938633,
+          "total": 2.938782,
+          "bytes": 162,
+          "new_conns": 1
+        }
+      ],
+      "same_circuit_new_stream": [
+        {
+          "code": "301",
+          "ttfb": 0.836883,
+          "total": 0.836992,
+          "bytes": 162,
+          "new_conns": 1
+        }
+      ],
+      "new_circuit_cached_descriptor": [
+        {
+          "code": "301",
+          "ttfb": 3.771297,
+          "total": 3.77141,
+          "bytes": 162,
+          "new_conns": 1
+        }
+      ],
+      "keepalive_pair": [
+        {
+          "code": "301",
+          "ttfb": 0.929265,
+          "total": 0.929359,
+          "bytes": 162,
+          "new_conns": 1
+        },
+        {
+          "code": "301",
+          "ttfb": 0.441298,
+          "total": 0.441384,
+          "bytes": 162,
+          "new_conns": 0
+        }
+      ]
+    },
+    "bbc": {
+      "first_contact": [
+        {
+          "code": "301",
+          "ttfb": 5.180723,
+          "total": 5.180779,
+          "bytes": 0,
+          "new_conns": 1
+        }
+      ],
+      "same_circuit_new_stream": [
+        {
+          "code": "301",
+          "ttfb": 1.194203,
+          "total": 1.194248,
+          "bytes": 0,
+          "new_conns": 1
+        }
+      ],
+      "new_circuit_cached_descriptor": [
+        {
+          "code": "301",
+          "ttfb": 4.085322,
+          "total": 4.085365,
+          "bytes": 0,
+          "new_conns": 1
+        }
+      ],
+      "keepalive_pair": [
+        {
+          "code": "301",
+          "ttfb": 0.664535,
+          "total": 0.664581,
+          "bytes": 0,
+          "new_conns": 1
+        },
+        {
+          "code": "301",
+          "ttfb": 0.388682,
+          "total": 0.388722,
+          "bytes": 0,
+          "new_conns": 0
+        }
+      ]
+    },
+    "nytimes": {
+      "first_contact": [
+        {
+          "code": "000",
+          "ttfb": 9.290243,
+          "total": 9.290246,
+          "bytes": 0,
+          "new_conns": 1
+        }
+      ],
+      "same_circuit_new_stream": [
+        {
+          "code": "000",
+          "ttfb": 8.527983,
+          "total": 8.527984,
+          "bytes": 0,
+          "new_conns": 1
+        }
+      ],
+      "new_circuit_cached_descriptor": [
+        {
+          "code": "000",
+          "ttfb": 10.733521,
+          "total": 10.733521,
+          "bytes": 0,
+          "new_conns": 1
+        }
+      ],
+      "keepalive_pair": [
+        {
+          "code": "000",
+          "ttfb": 8.476905,
+          "total": 8.476906,
+          "bytes": 0,
+          "new_conns": 1
+        },
+        {
+          "code": "000",
+          "ttfb": 8.910284,
+          "total": 8.910284,
+          "bytes": 0,
+          "new_conns": 1
+        }
+      ]
+    },
+    "propublica": {
+      "first_contact": [
+        {
+          "code": "000",
+          "ttfb": 12.45726,
+          "total": 12.457264,
+          "bytes": 0,
+          "new_conns": 1
+        }
+      ],
+      "same_circuit_new_stream": [
+        {
+          "code": "000",
+          "ttfb": 7.360084,
+          "total": 7.360086,
+          "bytes": 0,
+          "new_conns": 1
+        }
+      ],
+      "new_circuit_cached_descriptor": [
+        {
+          "code": "000",
+          "ttfb": 7.309965,
+          "total": 7.309966,
+          "bytes": 0,
+          "new_conns": 1
+        }
+      ],
+      "keepalive_pair": [
+        {
+          "code": "000",
+          "ttfb": 10.119292,
+          "total": 10.119293,
+          "bytes": 0,
+          "new_conns": 1
+        },
+        {
+          "code": "000",
+          "ttfb": 6.986617,
+          "total": 6.986618,
+          "bytes": 0,
+          "new_conns": 1
+        }
+      ]
+    },
+    "securedrop": {
+      "first_contact": [
+        {
+          "code": "200",
+          "ttfb": 3.265376,
+          "total": 6.436946,
+          "bytes": 350338,
+          "new_conns": 1
+        }
+      ],
+      "same_circuit_new_stream": [
+        {
+          "code": "200",
+          "ttfb": 1.559479,
+          "total": 2.591863,
+          "bytes": 350338,
+          "new_conns": 1
+        }
+      ],
+      "new_circuit_cached_descriptor": [
+        {
+          "code": "200",
+          "ttfb": 3.239823,
+          "total": 5.483799,
+          "bytes": 350338,
+          "new_conns": 1
+        }
+      ],
+      "keepalive_pair": [
+        {
+          "code": "200",
+          "ttfb": 2.38641,
+          "total": 3.479685,
+          "bytes": 350338,
+          "new_conns": 1
+        },
+        {
+          "code": "200",
+          "ttfb": 0.845817,
+          "total": 1.719102,
+          "bytes": 350338,
+          "new_conns": 0
+        }
+      ]
+    },
+    "ahmia": {
+      "first_contact": [
+        {
+          "code": "200",
+          "ttfb": 5.247313,
+          "total": 5.269358,
+          "bytes": 4735,
+          "new_conns": 1
+        }
+      ],
+      "same_circuit_new_stream": [
+        {
+          "code": "200",
+          "ttfb": 1.305767,
+          "total": 1.345722,
+          "bytes": 4735,
+          "new_conns": 1
+        }
+      ],
+      "new_circuit_cached_descriptor": [
+        {
+          "code": "200",
+          "ttfb": 4.196117,
+          "total": 4.434659,
+          "bytes": 4735,
+          "new_conns": 1
+        }
+      ],
+      "keepalive_pair": [
+        {
+          "code": "200",
+          "ttfb": 1.507539,
+          "total": 1.63821,
+          "bytes": 4735,
+          "new_conns": 1
+        },
+        {
+          "code": "200",
+          "ttfb": 0.749099,
+          "total": 0.949752,
+          "bytes": 4735,
+          "new_conns": 0
+        }
+      ]
+    }
+  },
+  "E2_isolation": {
+    "credA_1": "185.220.100.240",
+    "credA_2": "185.220.100.240",
+    "credB": "185.220.101.14"
+  },
+  "summary_median_min_max_n": {
+    "first_contact_total": [
+      5.27,
+      2.94,
+      7.04,
+      5
+    ],
+    "same_circuit_new_stream_total": [
+      1.35,
+      0.84,
+      2.59,
+      5
+    ],
+    "new_circuit_cached_descriptor_total": [
+      4.09,
+      3.04,
+      5.48,
+      5
+    ],
+    "keepalive_second_request_total": [
+      0.49,
+      0.39,
+      1.72,
+      5
+    ]
+  }
+}

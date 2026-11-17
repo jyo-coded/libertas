@@ -1,0 +1,17 @@
+{
+  "_note": "Phase 0 demo watchlist. These organisations are FICTIONAL (ShadowNet). In production, the police register organisations here with their consent.",
+  "organisations": [
+    {"org": "Kurinji Health Trust", "sector": "healthcare", "state": "Tamil Nadu", "city": "Madurai",
+     "terms": ["Kurinji Health Trust", "Kurinji Health", "Kurinji Hospital"], "domains": ["kurinjihealth.example"]},
+    {"org": "Mullai Telecom", "sector": "telecom", "state": "Tamil Nadu", "city": "Chennai",
+     "terms": ["Mullai Telecom", "Mullai Tel"], "domains": ["mullaitelecom.example"]},
+    {"org": "Marutham Co-operative Bank", "sector": "banking", "state": "Tamil Nadu", "city": "Thanjavur",
+     "terms": ["Marutham Co-operative Bank", "Marutham Bank", "Marutham Coop"], "domains": ["maruthambank.example"]},
+    {"org": "Neithal University", "sector": "education", "state": "Tamil Nadu", "city": "Nagapattinam",
+     "terms": ["Neithal University", "Neithal Univ"], "domains": ["neithal-univ.example"]},
+    {"org": "Palai Water Board", "sector": "government", "state": "Tamil Nadu", "city": "Ramanathapuram",
+     "terms": ["Palai Water Board", "Palai Water"], "domains": ["palaiwater.example"]},
+    {"org": "Nilavu Logistics", "sector": "corporate", "state": "Tamil Nadu", "city": "Coimbatore",
+     "terms": ["Nilavu Logistics"], "domains": ["nilavulogistics.example"]}
+  ]
+}
