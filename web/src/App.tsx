@@ -12,6 +12,7 @@ import { ItemView } from "./views/ItemView";
 import { LexView } from "./views/LexView";
 import { LogView } from "./views/LogView";
 import { MoneyView } from "./views/MoneyView";
+import { ReadinessView } from "./views/ReadinessView";
 import { SourcesView } from "./views/SourcesView";
 
 const num = (v: string | undefined) => (v && /^\d+$/.test(v) ? Number(v) : null);
@@ -57,6 +58,9 @@ function Routes() {
       break;
     case "lex":
       body = <LexView />;
+      break;
+    case "readiness":
+      body = <ReadinessView />;
       break;
     default:
       active = "log";

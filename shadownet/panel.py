@@ -6,11 +6,12 @@ import json
 from urllib.parse import quote
 
 from fastapi import FastAPI, Form
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 
 from libertas.common.timeutil import now_iso
 from libertas.config import PATHS
 
+from .adversary import MODES, Adversary
 from .sites import CSS, human
 from .store import FORUM_SECTIONS, Store
 from .world import PRESETS
@@ -18,7 +19,8 @@ from .world import PRESETS
 esc = html.escape
 
 
-def panel_app(store: Store) -> FastAPI:
+def panel_app(store: Store, adv: Adversary | None = None) -> FastAPI:
+    adv = adv or Adversary()
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
     def back(msg: str) -> RedirectResponse:
@@ -42,6 +44,11 @@ def panel_app(store: Store) -> FastAPI:
                            f'<form method="post" action="/{kind}/delete/{esc(str(i[key_field]))}"><button>delete</button>'
                            '</form></td></tr>' for i in items)
 
+        modes = "".join(
+            f'<tr><td><b>{esc(m)}</b></td><td>{esc(what)}</td><td>{"<b style='color:#ff8a65'>ON</b>" if adv.active(m) else "off"}</td>'
+            f'<td><form method="post" action="/adversary/{m}/{"off" if adv.active(m) else "on"}"><button>'
+            f'{"switch off" if adv.active(m) else "switch on"}</button></form></td></tr>' for m, what in MODES.items())
+        counters = " · ".join(f"{esc(k.replace('_', ' '))}: {v}" for k, v in adv.state()["counters"].items())
         hits = "".join(f'<tr><td>{esc(h["at"])}</td><td>{esc(h["path"])}</td><td>{esc(h["ua"])}</td></tr>'
                        for h in store.honeypot_hits()) or '<tr><td colspan="3">none — good</td></tr>'
         body = f"""
@@ -51,6 +58,9 @@ def panel_app(store: Store) -> FastAPI:
 <p class="meta">To open private sites in Tor Browser, paste this client key when it asks:
 <code>{esc(key)}</code></p>
 <h3>Live demo presets</h3>{presets}
+<h3>Adversary mode (real-world defences, to test the crawler)</h3>
+<table class="grid"><tr><th>Mode</th><th>What it does</th><th>State</th><th></th></tr>{modes}</table>
+<p class="meta">{counters}</p>
 <h3>Custom forum post</h3>
 <form method="post" action="/forum/post"><select name="alias">{members}</select>
 <select name="fid">{sections}</select><br><input name="title" size="80" placeholder="title"><br>
@@ -69,6 +79,32 @@ def panel_app(store: Store) -> FastAPI:
         if key not in PRESETS:
             return back("unknown preset")
         return back(PRESETS[key][1](store))
+
+    @app.post("/adversary/{mode}/{switch}")
+    def adversary_form(mode: str, switch: str):
+        if mode not in MODES or switch not in ("on", "off"):
+            return back("unknown adversary mode")
+        adv.set(mode, switch == "on")
+        return back(f"adversary mode '{mode}' switched {switch}")
+
+    @app.get("/api/adversary")
+    def adversary_state():
+        return JSONResponse({**adv.state(), "honeypot_hits": store.honeypot_count()})
+
+    @app.post("/api/adversary/{mode}")
+    def adversary_api(mode: str, on: bool = True, limit: int | None = None):
+        if mode not in MODES:
+            return JSONResponse({"error": "unknown mode"}, status_code=404)
+        if mode == "ratelimit":
+            adv.rate_limit = max(1, limit) if limit else 8
+        adv.set(mode, on)
+        return JSONResponse({**adv.state(), "honeypot_hits": store.honeypot_count()})
+
+    @app.post("/api/preset/{key}")
+    def preset_api(key: str):
+        if key not in PRESETS:
+            return JSONResponse({"error": "unknown preset"}, status_code=404)
+        return JSONResponse({"result": PRESETS[key][1](store)})
 
     @app.post("/forum/post")
     def forum_post(alias: str = Form(...), fid: int = Form(...), title: str = Form(...), body: str = Form(...)):

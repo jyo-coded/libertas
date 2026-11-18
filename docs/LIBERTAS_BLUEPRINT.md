@@ -5,7 +5,7 @@ Version 1.1 · 17 November 2026 · Status: design, awaiting review before build
 
 > **New in v1.1:** measurements on the live Tor network (§3.3), the Pulsus content-free sensor (§11.13), faster time-to-detect targets (§10), and ten new capabilities (#52–#61).
 > **New in v1.2:** how onion markets actually live (§3.4), the zero-execution guarantee (§11.14), where a VPN fits (§15), and the Phase 0 laptop setup with its safety gate (§18).
-> **Build status:** M0–M6 are built and verified live through Tor.
+> **Build status:** Phase 0 (M0–M7) is built and verified live through Tor. The §20 demo passed three times in a row without intervention, and seven failure drills pass (M7).
 > - A leak post is alerted in about 12–25 s, and a deletion is caught in about 22 s with the evidence kept.
 > - The deep lane confirms or corrects each alert about 1 s later, with authenticity, attribution, money trail and incident context.
 > - One-click evidence packs verify offline (M5).

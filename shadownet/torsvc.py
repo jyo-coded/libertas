@@ -30,6 +30,8 @@ SITES = [
      "adapter": "shadownet_paste", "pow": False},
 ]
 PANEL_PORT = 8600
+# the heartbeat canary: a separate public onion whose page changes every minute (blueprint section 10)
+HEARTBEAT = {"id": "heartbeat", "port": 8606}
 CONTROL_PORT = 19061
 BASE = PATHS.shadownet / "tor"
 
@@ -61,6 +63,7 @@ def _prepare_dirs(auth: dict) -> None:
             (clients / "libertas.auth").write_text(f"descriptor:x25519:{auth['public_key_b32']}\n")
         elif clients.exists():
             shutil.rmtree(clients)
+    (BASE / f"hs_{HEARTBEAT['id']}").mkdir(parents=True, exist_ok=True)
 
 
 def _torrc(pow_supported: bool) -> list[str]:
@@ -71,6 +74,8 @@ def _torrc(pow_supported: bool) -> list[str]:
                   f"HiddenServicePort 80 127.0.0.1:{site['port']}"]
         if site["pow"] and pow_supported:
             lines.append("HiddenServicePoWDefensesEnabled 1")
+    lines += [f"HiddenServiceDir {(BASE / ('hs_' + HEARTBEAT['id'])).as_posix()}",
+              f"HiddenServicePort 80 127.0.0.1:{HEARTBEAT['port']}"]
     return lines
 
 
@@ -83,21 +88,22 @@ async def start_service_tor(log=print):
     log(f"ShadowNet tor started (pid {proc.pid}); PoW module available: {pow_supported}")
     onions: dict[str, str] = {}
     for _ in range(120):
-        for site in SITES:
+        for site in SITES + [HEARTBEAT]:
             host = BASE / f"hs_{site['id']}" / "hostname"
             if host.exists() and site["id"] not in onions:
                 onions[site["id"]] = host.read_text().strip().removesuffix(".onion")
-        if len(onions) == len(SITES):
+        if len(onions) == len(SITES) + 1:
             break
         if proc.poll() is not None:
             raise RuntimeError(f"ShadowNet tor exited early; see {BASE / 'notice.log'}")
         await asyncio.sleep(0.5)
-    if len(onions) != len(SITES):
+    if len(onions) != len(SITES) + 1:
         raise RuntimeError("onion hostnames were not created in time")
     registry = {"generated_at": now_iso(), "simulation": True, "control_port": CONTROL_PORT,
                 "cookie": (BASE / "control_auth_cookie").as_posix(), "pow_supported": pow_supported,
                 "client_auth": {"name": auth["name"], "private_key_b32": auth["private_key_b32"]},
                 "sites": [{**{k: s[k] for k in ("id", "kind", "name", "private", "adapter")},
-                           "pow": s["pow"] and pow_supported, "onion": onions[s["id"]]} for s in SITES]}
+                           "pow": s["pow"] and pow_supported, "onion": onions[s["id"]]} for s in SITES],
+                "heartbeat": {"onion": onions[HEARTBEAT["id"]], "path": "/", "period_s": 60}}
     PATHS.shadownet_registry.write_text(json.dumps(registry, indent=2))
     return proc, registry

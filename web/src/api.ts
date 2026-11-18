@@ -85,6 +85,67 @@ export interface Health {
   last_outcome?: string | null;
   descriptor?: Descriptor;
   isolation_id?: string;
+  wall?: { kind: string; detail: string; since: string; hits: number } | null;
+  drift?: { since: string; count: number; last_error?: string } | null;
+  throttled_until?: string | null;
+  throttle_gap_s?: number;
+  deadline_watch?: { item_id: number; title: string; deadline: string; remaining_s: number; interval_s: number } | null;
+}
+
+export interface HeartbeatSummary {
+  state: string;
+  onion: string;
+  samples: number;
+  checks: number;
+  last_lag_s: number | null;
+  median_lag_s: number | null;
+  p95_lag_s: number | null;
+  recent_lags_s: number[];
+  consecutive_failures: number;
+}
+
+export interface TorState {
+  state: string;
+  restarts: number;
+  last_restart_at: string | null;
+  last_outage_s: number | null;
+  bootstrap_s?: number;
+}
+
+export interface Beat {
+  beat: string;
+  passed: boolean;
+  seconds: number;
+  detail: string;
+  [k: string]: unknown;
+}
+
+export interface Rehearsal {
+  id: string;
+  kind: "rehearsal";
+  started_at: string;
+  finished_at: string;
+  passed: boolean;
+  beats: Beat[];
+}
+
+export interface Drill {
+  id: string;
+  kind: "drill";
+  drill: string;
+  started_at: string;
+  finished_at: string;
+  seconds: number;
+  passed: boolean;
+  summary: string;
+}
+
+export interface LexDrill {
+  attempts: { attempt: string; method: string; url: string; allowed: boolean; reason: string; audit_seq: number }[];
+  refused: number;
+  total: number;
+  passed: boolean;
+  audit: AuditVerify;
 }
 
 export interface Source {
@@ -120,6 +181,8 @@ export interface Status {
   counts: Record<string, number>;
   queue: number;
   audit: AuditVerify;
+  heartbeat?: HeartbeatSummary | null;
+  tor?: TorState | null;
 }
 
 export interface Indicator {
@@ -483,4 +546,7 @@ export const api = {
   kill: (reason: string) =>
     request<{ kill_engaged: boolean }>("/api/kill", { method: "POST", body: JSON.stringify({ reason }) }),
   resume: () => request<{ kill_engaged: boolean }>("/api/resume", { method: "POST" }),
+  lexDrill: () => request<LexDrill>("/api/lex/drill", { method: "POST" }),
+  rehearsals: () => request<Rehearsal[]>("/api/rehearsals?limit=12"),
+  drills: () => request<Drill[]>("/api/drills?limit=30"),
 };

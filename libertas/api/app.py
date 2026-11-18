@@ -14,7 +14,9 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from ..codex.pack import PACK_ID_RE
 from ..common.timeutil import now_iso
+from ..config import PATHS
 from ..interpres.india import mask_pii
+from ..lex.drill import run as lex_drill
 
 STATIC = Path(__file__).parent / "static"
 # Explicit types: Windows registry MIME maps can turn .js into text/plain, which browsers refuse for modules.
@@ -115,8 +117,11 @@ def create_app(ctx, allowed_hosts: tuple[str, ...] = ("127.0.0.1", "localhost"))
                         "blocklist_size": len(ctx.lex.blocklist_md5)},
                 "sources": sources, "ttd": ttd, "alerts_by_severity": sev,
                 "counts": {k: conn.execute(f"SELECT COUNT(*) FROM {k}").fetchone()[0]
-                           for k in ("items", "captures", "alerts", "indicators", "audit_log")},
-                "queue": ctx.aquila.queue.qsize(), "audit": ctx.audit.verify()}
+                           for k in ("items", "captures", "alerts", "indicators", "audit_log")}
+                | {"responses_received": conn.execute("SELECT COUNT(*) FROM captures WHERE outcome LIKE 'http_%'").fetchone()[0]},
+                "queue": ctx.aquila.queue.qsize(), "audit": ctx.audit.verify(),
+                "heartbeat": ctx.aquila.heartbeat.summary() if hasattr(ctx.aquila, "heartbeat") else None,
+                "tor": {k: v for k, v in (getattr(ctx, "tor", None) or {}).items() if k != "proc"} or None}
 
     @app.get("/api/alerts")
     async def alerts(limit: int = 50, include_historical: bool = True):
@@ -346,9 +351,41 @@ def create_app(ctx, allowed_hosts: tuple[str, ...] = ("127.0.0.1", "localhost"))
         sealed = conn.execute("SELECT COUNT(*) FROM batch_leaves WHERE kind='capture'").fetchone()[0]
         return {"batches_by_status": counts, "captures_sealed": sealed, "last_batch": dict(last) if last else None}
 
+    # ---------- M7: readiness ----------
+    @app.post("/api/lex/drill")
+    async def drill_lex():
+        onion = getattr(ctx, "forum_onion", None)
+        if not onion:
+            raise HTTPException(503, "no forum source configured")
+        result = lex_drill(ctx.lex, onion, actor="dashboard-operator")
+        ctx.bus.publish({"type": "lex_drill", "passed": result["passed"]})
+        return result
+
+    def _records(folder: str, limit: int) -> list[dict]:
+        d = PATHS.var / folder
+        if not d.exists():
+            return []
+        out = []
+        for f in sorted(d.glob("*.json"), reverse=True)[:limit]:
+            try:
+                out.append(json.loads(f.read_text(encoding="utf-8")))
+            except (OSError, ValueError):
+                continue
+        return out
+
+    @app.get("/api/rehearsals")
+    async def rehearsals(limit: int = 12):
+        return _records("rehearsals", min(limit, 50))
+
+    @app.get("/api/drills")
+    async def drills(limit: int = 20):
+        return _records("drills", min(limit, 50))
+
     @app.post("/api/kill")
     async def kill(req: KillRequest):
         ctx.lex.engage_kill("dashboard", req.reason)
+        if hasattr(ctx.aquila, "sever"):  # cut requests already on the wire; Lex refuses every new one
+            await ctx.aquila.sever()
         ctx.bus.publish({"type": "kill_switch", "engaged": True, "reason": req.reason})
         return {"kill_engaged": True}
 

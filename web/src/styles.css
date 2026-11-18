@@ -2689,6 +2689,121 @@ q {
   font-size: 0.86rem;
 }
 
+/* ---------- readiness: heartbeat, rehearsals, drills, boundary test ---------- */
+
+.mast-heart {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mast-heart.is-bad b {
+  padding: 0.05rem 0.35rem;
+  border-radius: 3px;
+  background: var(--flash);
+  color: #fff;
+}
+
+.readiness-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 650;
+}
+
+.readiness-state::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--pencil);
+}
+
+.readiness-state--ok::before {
+  background: var(--ok);
+}
+
+.readiness-state--bad {
+  color: var(--flash);
+}
+
+.readiness-state--bad::before {
+  background: var(--flash);
+}
+
+.lag-row {
+  word-spacing: 0.35rem;
+}
+
+.timing th[scope="row"] {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.timing thead th {
+  vertical-align: bottom;
+}
+
+.run-result {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+td > .run-result {
+  display: inline;
+  margin: 0;
+}
+
+.run-result.is-pass {
+  color: var(--ok);
+}
+
+.run-result.is-fail {
+  color: var(--flash);
+}
+
+.beat-notes {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0.8rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--ink-2);
+  font-size: 0.88rem;
+}
+
+.drill {
+  display: grid;
+  justify-items: start;
+  gap: 0.8rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--surface);
+}
+
+.drill .table-wrap {
+  width: 100%;
+}
+
+.drill-verdict {
+  margin: 0.6rem 0 0;
+  color: var(--ok);
+  font-weight: 650;
+}
+
+.drill-verdict.fail {
+  color: var(--flash);
+}
+
+.deadline-live {
+  color: var(--immediate);
+  font-weight: 650;
+}
+
 /* ---------- widths ---------- */
 
 @media (max-width: 1599px) {

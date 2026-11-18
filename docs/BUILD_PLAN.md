@@ -111,4 +111,46 @@ Runtime data lives in `var/` (git-ignored): databases, the quarantine store and 
 
     The Latin module names stay, as the brand commitments in `PRODUCT.md` require. The design system is recorded in `DESIGN.md`.
   - **Build:** `cd web && npm install && npm run build`. The output goes to `libertas/api/forum/`. The previous minimal page remains at `/classic`.
-- **Next:** M7, hardening and the demo rehearsal (blueprint §20 script end to end, a timing table on the projector, and failure drills: Tor down, a source gone, the kill switch mid-run).
+- 18 Nov 2026 — **M7 done: hardening and rehearsal.** The acceptance test passed: the demo ran **three times in a row without intervention**. 73 automated tests pass.
+  - **Rehearsal runner** (`scripts/rehearse.py`): blueprint §20 end to end against the live system, timed beat by beat.
+
+    | Beat | Run 1 | Run 2 | Run 3 |
+    |---|---|---|---|
+    | Live incident: alert plus deep verdict (likely genuine, actor cybo_kaal, money to SimEx) | 29.6 s | 16.0 s | 22.3 s |
+    | Seller deletes the post; deletion caught, capture kept | 22.8 s | 17.5 s | 20.6 s |
+    | Evidence pack built, downloaded and verified offline (ALL CHECKS PASSED) | 1.4 s | 1.5 s | 1.4 s |
+    | Lex boundary: 6 forbidden requests refused and audited | 0.2 s | 0.2 s | 0.2 s |
+    | Kill switch: halt is instant; time until every source is watching again | 21.8 s | 14.8 s | 22.0 s |
+
+  - **ShadowNet adversary mode** (#61), switchable from the panel:
+    - CAPTCHA walls;
+    - HTTP 429 rate limits;
+    - randomised page markup;
+    - posts deleted 60 s after posting;
+    - a site going offline behind its onion.
+
+    The hidden honeypot link stays armed.
+  - **How Libertas copes:**
+    - Walls are recognised by structure, never solved, recorded once per episode and waited out. A thread titled "captcha solver" is not mistaken for a wall; a test caught that false positive.
+    - After a 429, Libertas honours Retry-After, then spaces its requests: 3 s first, doubling only on a fresh violation, up to 30 s. Revisits pause, so the feed and new posts get the scarce requests.
+    - Markup churn is flagged as layout drift and never guessed past.
+    - A Tor watchdog restarts a dead Tor client and rebuilds Pulsus.
+    - The kill switch refuses every new request at Lex and also cancels requests already on the wire.
+  - **Failure drills** (`scripts/drills.py all`): seven drills, all passing on the final build.
+
+    | Drill | Result |
+    |---|---|
+    | Kill switch mid-run | halted instantly; 0 responses in the next 25 s |
+    | CAPTCHA wall | recognised in 18 s; no false drift or deletion; post captured after the wall lifted; 0 honeypot hits |
+    | Randomised markup | flagged as drift in 20 s; post captured 20 s after the layout settled |
+    | HTTP 429 (2 requests per 10 s) | backed off to one request every 6 s; the new post was still alerted |
+    | Posts deleted after 60 s | alerted at 35 s, before the deletion; deletion recorded with the capture kept |
+    | Source goes offline | noticed in 14 s; recovered 38 s after it returned |
+    | Tor client killed | watchdog restarted it in 7 s; all sources watching again at 40 s |
+
+  - **Heartbeat canary:** a separate public onion that changes every minute. Libertas reads it through Tor and measures its own time to detect around the clock: 7–20 s per minute, median about 14 s. During the drills the laptop slept for 46 minutes; the heartbeat flagged it on wake.
+  - **Deadline-aware scheduling** (#55): as a ransomware countdown runs out, polling of that leak site tightens from 20 s to 12, 8 and then 5 s. Publication is caught and audited with how many seconds after the deadline it was seen. Live drill: a 4-minute countdown tightened polling to 8 s, and the publication was caught 8.0 s after the countdown ended. The voucher shows the countdown and a "warn the victim" step.
+  - **Forum:** a Readiness page (heartbeat, rehearsal timing table, drills), heartbeat in the header, a "Test the boundary" button on Policy & audit, and walls, throttling, drift and countdowns on Sources.
+  - **Backup video:** the user records it with Windows' screen recorder while `scripts/rehearse.py --pace 8` drives the demo. This is not recorded yet.
+  - **Still open for Phase 1:** deeper forum backfill through section pages, and a containerised dirty zone (Gate C).
+- **Next:** Phase 1 planning: the pilot with the TN Cyber Crime Wing, starting with Gate C (containerised collector with Tor-only egress, legal review, Authorization Ledger).

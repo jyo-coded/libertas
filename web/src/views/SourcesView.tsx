@@ -63,6 +63,26 @@ export function SourcesView() {
                           {h.state ?? "starting"}
                         </span>
                         {h.consecutive_failures ? <span className="cell-sub">{h.consecutive_failures} failures in a row</span> : null}
+                        {h.wall && (
+                          <span className="cell-sub">
+                            Wall since {istTime(h.wall.since)}: {h.wall.detail}, {h.wall.hits} {h.wall.hits === 1 ? "refusal" : "refusals"}
+                          </span>
+                        )}
+                        {h.throttled_until && new Date(h.throttled_until).getTime() > now && (
+                          <span className="cell-sub">Slowed to one request every {h.throttle_gap_s ?? 3} s until {istTime(h.throttled_until)} (site rate limit)</span>
+                        )}
+                        {h.drift && (
+                          <span className="cell-sub fail">
+                            Layout drift: {h.drift.count} {h.drift.count === 1 ? "page" : "pages"} no longer parse; nothing is guessed until an
+                            analyst checks the adapter
+                          </span>
+                        )}
+                        {h.deadline_watch && (
+                          <span className="cell-sub">
+                            Countdown on “{h.deadline_watch.title}” ends {istTime(h.deadline_watch.deadline)}: polling every{" "}
+                            {h.deadline_watch.interval_s} s
+                          </span>
+                        )}
                       </td>
                       <td className="nowrap">
                         {h.last_pulse_at ? ago(h.last_pulse_at, now) : "—"}

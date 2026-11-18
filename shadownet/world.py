@@ -353,6 +353,17 @@ def preset_ransom_victim(store: Store) -> str:
     return f"ShadowLock victim {vid} with a 72h countdown"
 
 
+def preset_ransom_deadline(store: Store) -> str:
+    """A countdown that ends four minutes from now. ShadowNet publishes the data the moment it expires."""
+    t0 = now()
+    org = ORGS["kurinji"]
+    vid = store.create_victim(org["name"], "IN", "healthcare", org["domain"],
+                              (t0 + timedelta(minutes=4)).isoformat(timespec="seconds"), "countdown", "212 GB",
+                              f"{org['name']} (IN) — healthcare. 212 GB of patient records, insurance claims and lab "
+                              "reports. Final warning: publication when the timer ends.", t0.isoformat(timespec="seconds"))
+    return f"ShadowLock victim {vid} with a 4-minute countdown"
+
+
 def _sample_lines(body: str) -> list[str]:
     return [line for line in body.splitlines() if line.count("|") >= 2]
 
@@ -401,6 +412,7 @@ def preset_delete_latest(store: Store) -> str:
 PRESETS = {
     "telecom_leak": ("Live: n1ghtcr4wl posts Mullai Telecom 1.2 crore DB", preset_telecom_leak),
     "ransom_victim": ("Live: ShadowLock lists Neithal University (72h countdown)", preset_ransom_victim),
+    "ransom_deadline": ("Live: ShadowLock gives Kurinji Health 4 minutes, then publishes", preset_ransom_deadline),
     "access_sale": ("Live: volk_access sells healthcare VPN access", preset_access_sale),
     "fake_leak": ("Live: data_baniya posts a FAKE Marutham Bank leak", preset_fake_leak),
     "proof_paste": ("Live: anon_k pastes the Mullai proof rows (same dataset)", preset_proof_paste),

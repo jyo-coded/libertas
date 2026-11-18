@@ -78,8 +78,12 @@ class Pipeline:
                 need.append(ref)
             elif ref.extra.get("status") and ref.extra.get("status") != old_extra.get("status"):
                 self.conn.execute("UPDATE items SET extra_json=? WHERE id=?", (json.dumps({**old_extra, **ref.extra}), row["id"]))
-                self.audit.append("speculatores", "status_change", f"item:{row['id']}", ref.extra["status"],
-                                  {"from": old_extra.get("status")})
+                detail = {"from": old_extra.get("status")}
+                if old_extra.get("deadline"):  # deadline-aware: how soon after the countdown ended did we see it
+                    detail.update(deadline=old_extra["deadline"],
+                                  seen_after_deadline_s=seconds_between(old_extra["deadline"], ts))
+                self.audit.append("speculatores", "status_change", f"item:{row['id']}", ref.extra["status"], detail)
+                self.bus.publish({"type": "status_change", "item_id": row["id"], **detail, "to": ref.extra["status"]})
                 need.append(ref)
         if complete:
             for row in self.conn.execute("SELECT * FROM items WHERE source_id=? AND deleted_at IS NULL", (source.id,)).fetchall():

@@ -94,6 +94,11 @@ function Recommended({ alert, deep, item }: { alert: Alert; deep: Deep | null; i
   const steps: ReactNode[] = [];
   const c = clearing(alert);
   const org = alert.orgs[0]?.org;
+  const status = item?.extra?.status;
+  if (status === "countdown" && typeof item?.extra?.deadline === "string") {
+    steps.push(`Warn the victim before the publication deadline (${istFull(item.extra.deadline as string)}). Libertas polls this site faster as the countdown runs out.`);
+  }
+  if (status === "published") steps.push("The leak site has published the data. Treat it as a confirmed breach and notify the victim and CERT-In now.");
   if (alert.deleted) steps.push("The post is gone from the site. Rely on the sealed capture; build the evidence pack now.");
   if (c.state === "RETURNED") steps.push("The claim fails the deep lane's checks. Acknowledge it and keep watching the seller for a genuine sample.");
   if (c.state !== "RETURNED" && org) steps.push(`Notify ${org} and CERT-In. Both drafts are generated inside the evidence pack.`);
@@ -136,6 +141,18 @@ export function Voucher({ alert, landing }: { alert: Alert; landing: boolean }) 
   const fastP = alert.fast ? precedence(alert.fast.severity) : null;
   const d = deep.data;
   const it = item.data;
+  // Ransomware countdown (deadline-aware scheduling tightens polling as it runs out).
+  const deadlineIso = typeof it?.extra?.deadline === "string" ? (it.extra.deadline as string) : null;
+  const deadlineDelta = deadlineIso ? between(new Date(now).toISOString(), deadlineIso) : null;
+  const deadline =
+    deadlineIso && deadlineDelta !== null
+      ? {
+          at: deadlineIso,
+          passed: deadlineDelta < 0,
+          text: seconds(Math.abs(deadlineDelta)),
+          status: String(it?.extra?.status ?? "unknown"),
+        }
+      : null;
   // The slip lists the checks behind the verdict, without repeating the sentence it already prints.
   const memoChecks = (d?.authenticity.reasons ?? []).filter((r) => !c.reason.toLowerCase().includes(r.toLowerCase()));
   const scale = claimedScale(alert.reasons);
@@ -317,6 +334,14 @@ export function Voucher({ alert, landing }: { alert: Alert; landing: boolean }) 
                 "—"
               )}
             </Fact>
+            {deadline && (
+              <Fact label="Publication deadline">
+                <span className={deadline.passed ? "gone-fact" : "deadline-live"}>
+                  {istFull(deadline.at)} · {deadline.passed ? `passed ${deadline.text} ago` : `in ${deadline.text}`}
+                </span>
+                <span className="pencil"> · status on the leak site: {deadline.status}</span>
+              </Fact>
+            )}
             {it && it.versions.length > 1 && <Fact label="Edits">{it.versions.length} versions captured</Fact>}
             <Fact label="Identifiers">{it ? identifierSummary(it) : item.error ? "—" : "Loading"}</Fact>
             {scale !== null && (

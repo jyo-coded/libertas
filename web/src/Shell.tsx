@@ -1,4 +1,5 @@
 import {
+  Activity,
   FolderOpen,
   Inbox,
   Landmark,
@@ -37,6 +38,7 @@ export const NAV: NavItem[] = [
   { id: "evidence", label: "Evidence", latin: "Tabularium", icon: Stamp },
   { id: "sources", label: "Sources", latin: "Speculatores", icon: RadioTower },
   { id: "lex", label: "Policy & audit", latin: "Lex", icon: Scale },
+  { id: "readiness", label: "Readiness", latin: "Pulsus", icon: Activity },
 ];
 
 function ExerciseStrip() {
@@ -187,6 +189,25 @@ function Masthead() {
               <span title={`Median time from posting to alert across ${status.ttd.n} posts; p95 ${seconds(status.ttd.p95_s)}`}>
                 Time to detect <b className="mono">{seconds(status.ttd.median_s)}</b>
               </span>
+            </>
+          )}
+          {status?.heartbeat && (
+            <>
+              {" · "}
+              <a
+                href="#/readiness"
+                className={`mast-heart${status.heartbeat.state === "ok" ? "" : " is-bad"}`}
+                title="The canary onion changes every minute; this is how long Libertas took to see the latest change"
+              >
+                Heartbeat{" "}
+                <b className="mono">
+                  {status.heartbeat.state === "ok" || status.heartbeat.state === "starting"
+                    ? status.heartbeat.last_lag_s !== null
+                      ? seconds(status.heartbeat.last_lag_s)
+                      : "warming up"
+                    : status.heartbeat.state}
+                </b>
+              </a>
             </>
           )}
         </span>

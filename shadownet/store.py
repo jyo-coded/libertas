@@ -178,6 +178,34 @@ class Store:
     def paste(self, pid: str):
         return self.conn.execute("SELECT * FROM pastes WHERE id=? AND deleted=0", (pid,)).fetchone()
 
+    # ----- adversary mode helpers -----
+    def created_between(self, since: str, until: str) -> list[tuple[str, str]]:
+        """(kind, id) of every live post created in [since, until], across all four sites."""
+        out: list[tuple[str, str]] = []
+        for kind, table, key in (("thread", "threads", "tid"), ("listing", "listings", "id"),
+                                 ("paste", "pastes", "id"), ("victim", "victims", "id")):
+            for r in self.conn.execute(f"SELECT {key} FROM {table} WHERE deleted=0 AND created_at >= ? AND created_at <= ?",
+                                       (since, until)):
+                out.append((kind, str(r[0])))
+        return out
+
+    def delete_any(self, kind: str, key: str) -> None:
+        {"thread": lambda: self.delete_thread(int(key)), "listing": lambda: self.delete_listing(int(key)),
+         "paste": lambda: self.delete_paste(key), "victim": lambda: self.delete_victim(int(key))}[kind]()
+
+    def publish_due_victims(self, now_iso_: str) -> list[int]:
+        """Ransomware groups publish when the countdown ends: flip overdue countdowns to 'published'."""
+        due = [r["id"] for r in self.conn.execute(
+            "SELECT id FROM victims WHERE deleted=0 AND status='countdown' AND deadline <= ?", (now_iso_,))]
+        for vid in due:
+            self.conn.execute(
+                "UPDATE victims SET status='published', description=description || ? WHERE id=?",
+                ("\n\nDEADLINE PASSED. ALL DATA IS NOW PUBLISHED. Download links below (simulated, no files).", vid))
+        return due
+
+    def honeypot_count(self) -> int:
+        return self.conn.execute("SELECT COUNT(*) FROM honeypot_hits").fetchone()[0]
+
     # ----- honeypot -----
     def honeypot_hit(self, at: str, path: str, ua: str) -> None:
         self.conn.execute("INSERT INTO honeypot_hits(at, path, ua) VALUES (?,?,?)", (at, path, ua[:200]))

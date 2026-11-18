@@ -8,6 +8,7 @@ text-like content types, it decompresses under a hard cap, and every request and
 """
 from __future__ import annotations
 
+import asyncio
 import secrets
 import time
 import zlib
@@ -24,7 +25,7 @@ ALLOWED_CONTENT_TYPES = frozenset({
     "application/xml", "text/xml", "application/rss+xml", "application/atom+xml",
 })
 KEPT_HEADERS = ("content-type", "content-length", "content-encoding", "server", "date", "last-modified",
-                "etag", "cache-control", "x-powered-by", "location")
+                "etag", "cache-control", "x-powered-by", "location", "retry-after")
 
 
 class Refused(Exception):
@@ -112,6 +113,7 @@ class WatchSession:
         self._transport = transport
         self._validators: dict[str, dict[str, str]] = {}
         self.requests = 0
+        self._inflight: set[asyncio.Task] = set()
         self._client = self._new_client()
 
     def _new_client(self) -> httpx.AsyncClient:
@@ -140,6 +142,28 @@ class WatchSession:
         await self._client.aclose()
 
     async def get(self, url: str, *, conditional: bool = False) -> FetchResult:
+        """Each fetch runs as its own task so the kill switch can cut it mid-flight (see sever())."""
+        task = asyncio.ensure_future(self._get(url, conditional=conditional))
+        self._inflight.add(task)
+        try:
+            return await task
+        except asyncio.CancelledError:
+            if task.cancelled() and not asyncio.current_task().cancelling():
+                return FetchResult(url=url, final_url=url, isolation_id=self.isolation_id,
+                                   refused="severed by the kill switch")
+            raise
+        finally:
+            self._inflight.discard(task)
+
+    async def sever(self) -> int:
+        """Cancel every request of this session that is still on the wire, then move to a fresh circuit."""
+        cut = [t for t in self._inflight if not t.done()]
+        for t in cut:
+            t.cancel()
+        await self.rotate()
+        return len(cut)
+
+    async def _get(self, url: str, *, conditional: bool = False) -> FetchResult:
         started = time.perf_counter()
         current = url
 

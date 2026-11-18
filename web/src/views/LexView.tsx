@@ -1,6 +1,6 @@
 import { OctagonX, Play, ShieldCheck, ShieldExclamationPoint } from "lucide-react";
 import { useState } from "react";
-import { api, type AuditEntry } from "../api";
+import { api, type AuditEntry, type LexDrill } from "../api";
 import { ErrorNote, HashText, Loading, Section, ViewHeader } from "../components";
 import { errorText, istFull, istTime } from "../format";
 import { useResource } from "../hooks";
@@ -39,6 +39,19 @@ export function LexView() {
   const [error, setError] = useState<string | null>(null);
   const engaged = !!status?.kill_engaged;
   const audit = status?.audit;
+  const [drill, setDrill] = useState<{ state: "idle" | "running" | "done" | "error"; result?: LexDrill; error?: string }>({
+    state: "idle",
+  });
+
+  const runDrill = async () => {
+    setDrill({ state: "running" });
+    try {
+      setDrill({ state: "done", result: await api.lexDrill() });
+      tail.reload();
+    } catch (e) {
+      setDrill({ state: "error", error: errorText(e) });
+    }
+  };
 
   const toggle = async () => {
     setBusy(true);
@@ -91,6 +104,55 @@ export function LexView() {
             </button>
           </form>
           {error && <ErrorNote error={error} />}
+        </div>
+      </Section>
+
+      <Section title="Test the boundary" note="Ask the crawler to cross the line">
+        <div className="drill">
+          <p className="control-sub">
+            Six forbidden requests go to the same gate every real request passes: logging in, credentials in the address, an
+            unauthorised onion, the open internet, a leaked archive and an executable. A refused request never leaves this machine,
+            and each refusal is written to the audit chain.
+          </p>
+          <button type="button" className="btn btn--primary" onClick={runDrill} disabled={drill.state === "running"}>
+            <ShieldCheck size={16} aria-hidden /> {drill.state === "running" ? "Testing" : "Test the boundary"}
+          </button>
+          {drill.state === "error" && drill.error && <ErrorNote error={drill.error} retry={runDrill} />}
+          {drill.result && (
+            <div className="table-wrap">
+              <table className="ledger ledger--dense drill-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Attempt</th>
+                    <th scope="col">Request</th>
+                    <th scope="col">Lex</th>
+                    <th scope="col" className="num">
+                      Audit #
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {drill.result.attempts.map((a) => (
+                    <tr key={a.attempt}>
+                      <td>{a.attempt}</td>
+                      <td className="mono break cell-detail">
+                        {a.method} {a.url.length > 64 ? `${a.url.slice(0, 40)}…${a.url.slice(-20)}` : a.url}
+                      </td>
+                      <td className={a.allowed ? "fail" : ""}>
+                        <b>{a.allowed ? "Allowed" : "Refused"}</b>
+                        <span className="cell-sub">{a.reason}</span>
+                      </td>
+                      <td className="mono num">{a.audit_seq}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className={`drill-verdict${drill.result.passed ? "" : " fail"}`}>
+                {drill.result.refused} of {drill.result.total} refused. Audit chain{" "}
+                {drill.result.audit.ok ? `intact across ${drill.result.audit.entries_checked} entries` : "BROKEN"}.
+              </p>
+            </div>
+          )}
         </div>
       </Section>
 

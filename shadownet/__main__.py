@@ -17,11 +17,12 @@ from libertas.common.priority import lower_priority
 from libertas.config import PATHS
 from libertas.speculatores.torproc import wait_bootstrapped
 
+from .adversary import Adversary, heartbeat_app, install, scheduler
 from .chain import build_ledger, chain_app
 from .panel import panel_app
 from .sites import SITE_APPS
 from .store import Store
-from .torsvc import PANEL_PORT, SITES, start_service_tor
+from .torsvc import HEARTBEAT, PANEL_PORT, SITES, start_service_tor
 from .world import seed
 
 CHAIN_PORT = 8605
@@ -43,6 +44,8 @@ async def run_up(reseed: bool) -> None:
     PATHS.shadownet_registry.write_text(json.dumps(registry, indent=2))
     for s in registry["sites"]:
         print(f"  {s['name']:<28} http://{s['onion']}.onion  ({'private' if s['private'] else 'public'})", flush=True)
+    print(f"  heartbeat canary             http://{registry['heartbeat']['onion']}.onion/  (public, changes every minute)",
+          flush=True)
     print(f"  control panel (local only)    http://127.0.0.1:{PANEL_PORT}/", flush=True)
     print(f"  ShadowChain (simulated BTC)   http://127.0.0.1:{CHAIN_PORT}/  ({len(ledger.txs)} transactions)", flush=True)
 
@@ -55,13 +58,50 @@ async def run_up(reseed: bool) -> None:
             print(f"warning: {exc}", flush=True)
 
     asyncio.create_task(report_bootstrap())
-    configs = [(SITE_APPS[s["kind"]](store), s["port"]) for s in SITES] + [(panel_app(store), PANEL_PORT),
-                                                                          (chain_app(ledger), CHAIN_PORT)]
-    servers = [uvicorn.Server(uvicorn.Config(app, host="127.0.0.1", port=port, log_level="warning",
-                                             server_header=False, access_log=False)) for app, port in configs]
+    adv = Adversary()
+    site_apps = {}
+    for s in SITES:
+        app = SITE_APPS[s["kind"]](store)
+        install(app, s["kind"], adv)
+        site_apps[s["id"]] = (app, s["port"])
+
+    def make_server(app, port):
+        return uvicorn.Server(uvicorn.Config(app, host="127.0.0.1", port=port, log_level="warning",
+                                             server_header=False, access_log=False))
+
+    loop = asyncio.get_running_loop()
+    live: dict[str, uvicorn.Server] = {}
+    tasks: list[asyncio.Task] = []
+
+    def start_site(site_id: str) -> None:
+        srv = make_server(*site_apps[site_id])
+        live[site_id] = srv
+        tasks.append(loop.create_task(srv.serve()))
+
+    def set_offline(offline: bool) -> None:
+        """Adversary 'offline': DeadDrop's web server stops behind its onion address, then comes back."""
+        def apply():
+            if offline and "deaddrop" in live:
+                live.pop("deaddrop").should_exit = True
+                print("adversary: DeadDrop server taken offline", flush=True)
+            elif not offline and "deaddrop" not in live:
+                start_site("deaddrop")
+                print("adversary: DeadDrop server back online", flush=True)
+        loop.call_soon_threadsafe(apply)
+
+    adv.on_offline_change = set_offline
+    for site_id in site_apps:
+        start_site(site_id)
+    for app, port in ((panel_app(store, adv), PANEL_PORT), (chain_app(ledger), CHAIN_PORT),
+                      (heartbeat_app(), HEARTBEAT["port"])):
+        tasks.append(loop.create_task(make_server(app, port).serve()))
+    tasks.append(loop.create_task(scheduler(store, adv, log=lambda m: print(m, flush=True))))
     try:
-        await asyncio.gather(*(srv.serve() for srv in servers))
+        while True:  # sites may stop and restart (adversary 'offline'), so wait on the long-lived pieces
+            await asyncio.sleep(3600)
     finally:
+        for t in tasks:
+            t.cancel()
         proc.terminate()
 
 
